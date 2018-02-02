@@ -5,11 +5,13 @@ const {
 	NODE_ENV,
 	REACT_APP_ANNICT_CLIENT_ID,
 	REACT_APP_ANNICT_CLIENT_SECRET,
+	REACT_APP_ANNICT_REDIRECT,
 } = process.env
 
 if (
 	!REACT_APP_ANNICT_CLIENT_ID ||
 	!REACT_APP_ANNICT_CLIENT_SECRET ||
+	!REACT_APP_ANNICT_REDIRECT ||
 	!NODE_ENV
 ) {
 	console.error(process.env)
@@ -21,6 +23,7 @@ type Config = {
 	+annict: {
 		+id: string,
 		+secret: string,
+		+redirect: string,
 	},
 	+admin: {
 		+name: string,
@@ -47,6 +50,7 @@ const config: Config = {
 	annict: {
 		id: REACT_APP_ANNICT_CLIENT_ID,
 		secret: REACT_APP_ANNICT_CLIENT_SECRET,
+		redirect: REACT_APP_ANNICT_REDIRECT,
 	},
 	admin: { name: '', countMax: 0 },
 	...(isDev ? configDevelopment : configProduction),
