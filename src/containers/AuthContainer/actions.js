@@ -1,17 +1,12 @@
 // @flow
-import type { AnnictUser } from '../../types/'
+import type { Auth } from '../../types/'
 
-import { GOOGLE_LOGIN, GOOGLE_LOGOUT } from './actionTypes'
-import type { GoogleLogin, GoogleLogout } from './actionTypes'
+import { SAVE_AUTH } from './actionTypes'
+import type { SaveAuth } from './actionTypes'
 
-export function googleLogin(firebaseUser: AnnictUser): GoogleLogin {
+export function saveAuth(auth: $Shape<Auth>): SaveAuth {
 	return {
-		type: GOOGLE_LOGIN,
-		firebaseUser,
-	}
-}
-export function googleLogout(): GoogleLogout {
-	return {
-		type: GOOGLE_LOGOUT,
+		type: SAVE_AUTH,
+		auth,
 	}
 }

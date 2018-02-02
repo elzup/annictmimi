@@ -31,19 +31,12 @@ export type Store = ReduxStore<State, Action, Dispatch>
 
 export type Auth = {
 	authorized: boolean,
-	uid: string,
-	displayName: ?string,
-	email: ?string,
+	accessToken: string,
+	scope: string,
+	createdAt: number,
 }
 
 export type AnnictUser = {
-	userName: string,
-	token: string,
-	displayName: ?string,
-	email: ?string,
-}
-
-export type Item = {
-	id: number,
+	username: string,
 	name: string,
 }

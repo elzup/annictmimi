@@ -1,23 +1,15 @@
 // @flow
-import type { AnnictUser } from '../../types/'
+import type { Auth } from '../../types/'
 
-export const GOOGLE_LOGIN: 'AuthContainer/GOOGLE_LOGIN' =
-	'AuthContainer/GOOGLE_LOGIN'
-export const GOOGLE_LOGOUT: 'AuthContainer/GOOGLE_LOGOUT' =
-	'AuthContainer/GOOGLE_LOGOUT'
+export const SAVE_AUTH: 'AuthContainer/SAVE_AUTH' = 'AuthContainer/SAVE_AUTH'
 
 export const Actions = {
-	GOOGLE_LOGIN,
-	GOOGLE_LOGOUT,
+	SAVE_AUTH,
 }
 
-export type GoogleLogin = {
-	type: typeof GOOGLE_LOGIN,
-	firebaseUser: AnnictUser,
+export type SaveAuth = {
+	type: typeof SAVE_AUTH,
+	auth: $Shape<Auth>,
 }
 
-export type GoogleLogout = {
-	type: typeof GOOGLE_LOGOUT,
-}
-
-export type Action = GoogleLogin | GoogleLogout
+export type Action = SaveAuth

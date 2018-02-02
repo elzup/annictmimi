@@ -6,26 +6,18 @@ export type State = Auth
 
 export const initialState: State = {
 	authorized: false,
-	uid: '',
-	displayName: '',
-	email: '',
+	accessToken: '',
+	scope: '',
+	createdAt: 0,
 }
 
 export default function(state: State = initialState, action: Action): State {
 	switch (action.type) {
-		case Actions.GOOGLE_LOGIN:
+		case Actions.SAVE_AUTH:
 			return {
 				...state,
-				uid: action.firebaseUser.uid,
-				displayName: action.firebaseUser.displayName || 'no name',
-				email: action.firebaseUser.email || 'no email',
 				authorized: true,
-			}
-
-		case Actions.GOOGLE_LOGOUT:
-			return {
-				...state,
-				authorized: false,
+				...action.auth,
 			}
 
 		default:

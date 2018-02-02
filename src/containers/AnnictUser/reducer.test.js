@@ -6,20 +6,17 @@ test('provide the initial state', () => {
 	expect(reducer(undefined, { type: '@@INIT' })).toEqual(initialState)
 })
 
-test('handle SAVE_AUTH', () => {
+test('handle SAVE_ANNICT_USER', () => {
 	expect(
 		reducer(
 			initialState,
-			actions.saveAuth({
-				accessToken: 'hoge',
-				scope: 'read',
-				createdAt: 1234,
+			actions.saveAnnictUser({
+				username: 'a',
+				name: 'b',
 			}),
 		),
 	).toEqual({
-		authorized: true,
-		accessToken: 'hoge',
-		scope: 'read',
-		createdAt: 1234,
+		username: 'a',
+		name: 'b',
 	})
 })
