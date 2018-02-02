@@ -1,6 +1,7 @@
 // @flow
 
 import _combineReducers from './combineReducers'
+import queryString from 'query-string'
 const {
 	NODE_ENV,
 	REACT_APP_ANNICT_CLIENT_ID,
@@ -24,6 +25,8 @@ type Config = {
 		+id: string,
 		+secret: string,
 		+redirect: string,
+		+baseUrl: string,
+		+authUrl: string,
 	},
 	+admin: {
 		+name: string,
@@ -45,9 +48,21 @@ const configProduction = {
 	},
 }
 
+const baseUrl = 'https://api.annict.com'
+const authUrl =
+	'https://jp.annict.com/oauth/authorize?' +
+	queryString.stringify({
+		client_id: REACT_APP_ANNICT_CLIENT_ID,
+		redirect_uri: REACT_APP_ANNICT_REDIRECT,
+		response_type: 'code',
+		scope: 'read',
+	})
+
 const config: Config = {
 	isDev,
 	annict: {
+		baseUrl,
+		authUrl,
 		id: REACT_APP_ANNICT_CLIENT_ID,
 		secret: REACT_APP_ANNICT_CLIENT_SECRET,
 		redirect: REACT_APP_ANNICT_REDIRECT,

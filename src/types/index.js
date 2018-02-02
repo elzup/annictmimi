@@ -36,27 +36,14 @@ export type Auth = {
 	email: ?string,
 }
 
-export type FirebaseUser = {
-	uid: string,
+export type AnnictUser = {
+	userName: string,
+	token: string,
 	displayName: ?string,
 	email: ?string,
-}
-
-export type TwitterUser = {
-	uid: string,
-	screenName: string,
-	displayName: string,
 }
 
 export type Item = {
 	id: number,
 	name: string,
-}
-
-export type Potato = {
-	id?: string,
-	publish: boolean,
-	owner?: number,
-	createdAt: number,
-	text: string,
 }
