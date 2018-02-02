@@ -4,25 +4,18 @@ import { connect, type Connector } from 'react-redux'
 import * as Ons from 'react-onsenui'
 import queryString from 'query-string'
 
-import type { State, AnnictUser } from '../../types'
+import type { State } from '../../types'
 import { doLogin, doLogout, requestToken } from './logic'
 import * as selectors from './selectors'
+import HomeContainer from '../HomeContainer'
 
 type OProps = {}
 type Props = {
-	user: AnnictUser,
 	isLogin: boolean,
 	doLogin: Function,
 	doLogout: Function,
 	requestToken: ({ code: string }) => void,
 }
-
-const LoginedContainer = (props: Props) => (
-	<Ons.Page>
-		<p>{props.user.username} Logined</p>
-		<Ons.Button onClick={props.doLogout}>ログアウト</Ons.Button>
-	</Ons.Page>
-)
 
 const AuthContainer = (props: Props) => (
 	<Ons.Page>
@@ -44,7 +37,7 @@ class Container extends React.Component<Props> {
 			props.requestToken({ code: qs.code })
 			return <span>認証中...</span>
 		}
-		return <LoginedContainer {...props} />
+		return <HomeContainer />
 	}
 }
 

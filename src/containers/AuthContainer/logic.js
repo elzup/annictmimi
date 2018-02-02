@@ -1,7 +1,6 @@
 // @flow
 
 import request from 'superagent'
-import Annict from 'annict'
 
 import type { ThunkAction } from '../../types'
 import * as actions from './actions'
@@ -9,8 +8,6 @@ import { saveAnnictUser, removeUser } from '../AnnictUser/actions'
 import * as selectors from './selectors'
 import config from '../../config'
 import camelCaseRecursive from 'camelcase-keys-recursive'
-
-const annict = new Annict()
 
 export function doLogin(): ThunkAction {
 	return dispatch => {
@@ -42,7 +39,6 @@ export function requestToken({ code }: { code: string }): ThunkAction {
 export function fetchUser(): ThunkAction {
 	return async (dispatch, getState) => {
 		const token = selectors.getToken(getState())
-		annict.client.setHeader('Authorization', `Bearer ${token}`)
 		const res = await request
 			.get(config.annict.baseUrl + '/v1/me')
 			.query({ access_token: token })
@@ -55,9 +51,13 @@ export function fetchUser(): ThunkAction {
 	}
 }
 
-export function refLogin(): ThunkAction {
-	return dispatch => {
-		// TODO
+export function fetchUserRecords(): ThunkAction {
+	return async (dispatch, getState) => {
+		const { username } = selectors.getUser(getState())
+		const token = selectors.getToken(getState())
+		const res = await request
+			.get(config.annict.baseUrl + '/v1/me')
+			.query({ access_token: token })
 	}
 }
 
