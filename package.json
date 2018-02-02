@@ -14,6 +14,7 @@
 		"precommit": "lint-staged"
 	},
 	"dependencies": {
+		"annict": "^0.0.8",
 		"camelcase-keys-recursive": "^0.8.2",
 		"lodash": "^4.17.4",
 		"material-ui": "^0.20.0",

@@ -4,21 +4,22 @@ import { connect, type Connector } from 'react-redux'
 import * as Ons from 'react-onsenui'
 import queryString from 'query-string'
 
-import type { State, Auth } from '../../types'
+import type { State, AnnictUser } from '../../types'
 import { doLogin, doLogout, requestToken } from './logic'
 import * as selectors from './selectors'
 
 type OProps = {}
 type Props = {
+	user: AnnictUser,
 	isLogin: boolean,
 	doLogin: Function,
-	requestToken: ({ code: string }) => void,
 	doLogout: Function,
+	requestToken: ({ code: string }) => void,
 }
 
 const LoginedContainer = (props: Props) => (
 	<Ons.Page>
-		<p>Logined</p>
+		<p>{props.user.username} Logined</p>
 		<Ons.Button onClick={props.doLogout}>ログアウト</Ons.Button>
 	</Ons.Page>
 )
@@ -50,12 +51,13 @@ class Container extends React.Component<Props> {
 const ms = (state: State) => {
 	return {
 		isLogin: selectors.isLogin(state),
+		user: selectors.getUser(state),
 	}
 }
 const conn: Connector<OProps, Props> = connect(ms, {
 	doLogin,
-	requestToken,
 	doLogout,
+	requestToken,
 })
 
 export default conn(Container)

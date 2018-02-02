@@ -12,6 +12,9 @@ export const initialState: State = {
 
 export default function(state: State = initialState, action: Action): State {
 	switch (action.type) {
+		case Actions.REMOVE_USER:
+			return initialState
+
 		case Actions.SAVE_ANNICT_USER:
 			return action.user
 		default:

@@ -20,3 +20,15 @@ test('handle SAVE_ANNICT_USER', () => {
 		name: 'b',
 	})
 })
+
+test('handle REMOVE_USER', () => {
+	expect(
+		reducer(
+			{
+				username: 'a',
+				name: 'b',
+			},
+			actions.removeUser(),
+		),
+	).toEqual(initialState)
+})

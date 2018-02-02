@@ -1,11 +1,16 @@
 // @flow
 
 import request from 'superagent'
+import Annict from 'annict'
 
 import type { ThunkAction } from '../../types'
 import * as actions from './actions'
+import { saveAnnictUser, removeUser } from '../AnnictUser/actions'
+import * as selectors from './selectors'
 import config from '../../config'
 import camelCaseRecursive from 'camelcase-keys-recursive'
+
+const annict = new Annict()
 
 export function doLogin(): ThunkAction {
 	return dispatch => {
@@ -16,7 +21,7 @@ export function doLogin(): ThunkAction {
 }
 
 export function requestToken({ code }: { code: string }): ThunkAction {
-	return dispatch => {
+	return async (dispatch, getState) => {
 		request
 			.post(config.annict.baseUrl + '/oauth/token')
 			.send({
@@ -26,16 +31,27 @@ export function requestToken({ code }: { code: string }): ThunkAction {
 				redirect_uri: config.annict.redirect,
 				code: code,
 			})
-			.set('accept', 'json')
 			.end(async (err, res) => {
-				if (err) {
-					// TODO print error
-					window.location.href = '/'
-					return
-				}
 				await dispatch(actions.saveAuth(camelCaseRecursive(res.body)))
+				await dispatch(fetchUser())
 				window.location.href = '/'
 			})
+	}
+}
+
+export function fetchUser(): ThunkAction {
+	return async (dispatch, getState) => {
+		const token = selectors.getToken(getState())
+		annict.client.setHeader('Authorization', `Bearer ${token}`)
+		const res = await request
+			.get(config.annict.baseUrl + '/v1/me')
+			.query({ access_token: token })
+		dispatch(
+			saveAnnictUser({
+				name: res.body.name,
+				username: res.body.username,
+			}),
+		)
 	}
 }
 
@@ -47,6 +63,7 @@ export function refLogin(): ThunkAction {
 
 export function doLogout(): ThunkAction {
 	return async dispatch => {
-		// TODO
+		await dispatch(actions.removeAuth())
+		await dispatch(removeUser())
 	}
 }
