@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import { connect, type Connector } from 'react-redux'
-import _ from 'lodash'
+import * as Ons from 'react-onsenui'
 
 import type { State, Auth } from '../../types'
 import { doLogin, doLogout } from './logic'
@@ -15,17 +15,17 @@ type Props = {
 }
 
 const LoginedContainer = (props: Props) => (
-	<div>
+	<Ons.Page>
 		<p>Logined</p>
-		<p onClick={props.doLogout}>ログアウト</p>
-	</div>
+		<Ons.Button onClick={props.doLogout}>ログアウト</Ons.Button>
+	</Ons.Page>
 )
 
 const AuthContainer = (props: Props) => (
-	<div>
-		<p>Not logined</p>
-		<p onClick={props.doLogin}>Login</p>
-	</div>
+	<Ons.Page>
+		<p>Not Logined</p>
+		<Ons.Button onClick={props.doLogout}>Annict ログイン</Ons.Button>
+	</Ons.Page>
 )
 
 class Container extends React.Component<Props> {

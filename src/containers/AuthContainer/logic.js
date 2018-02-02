@@ -1,6 +1,6 @@
 // @flow
 
-import type { ThunkAction, FirebaseUser } from '../../types'
+import type { ThunkAction } from '../../types'
 import * as actions from './actions'
 
 export function doLogin(): ThunkAction {

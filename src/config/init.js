@@ -2,6 +2,8 @@
 
 import { injectGlobal } from 'styled-components'
 import 'moment/locale/ja'
+import 'onsenui/css/onsenui.css'
+import 'onsenui/css/onsen-css-components.css'
 
 injectGlobal`
 body {
