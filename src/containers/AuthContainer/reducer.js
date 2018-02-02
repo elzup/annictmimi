@@ -13,6 +13,9 @@ export const initialState: State = {
 
 export default function(state: State = initialState, action: Action): State {
 	switch (action.type) {
+		case Actions.REMOVE_AUTH:
+			return initialState
+
 		case Actions.SAVE_AUTH:
 			return {
 				...state,

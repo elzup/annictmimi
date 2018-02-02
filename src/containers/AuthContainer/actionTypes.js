@@ -2,9 +2,12 @@
 import type { Auth } from '../../types/'
 
 export const SAVE_AUTH: 'AuthContainer/SAVE_AUTH' = 'AuthContainer/SAVE_AUTH'
+export const REMOVE_AUTH: 'AuthContainer/REMOVE_AUTH' =
+	'AuthContainer/REMOVE_AUTH'
 
 export const Actions = {
 	SAVE_AUTH,
+	REMOVE_AUTH,
 }
 
 export type SaveAuth = {
@@ -12,4 +15,8 @@ export type SaveAuth = {
 	auth: $Shape<Auth>,
 }
 
-export type Action = SaveAuth
+export type RemoveAuth = {
+	type: typeof REMOVE_AUTH,
+}
+
+export type Action = SaveAuth | RemoveAuth

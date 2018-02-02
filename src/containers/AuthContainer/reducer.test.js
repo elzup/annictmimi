@@ -23,3 +23,17 @@ test('handle SAVE_AUTH', () => {
 		createdAt: 1234,
 	})
 })
+
+test('handle REMOVE_AUTH', () => {
+	expect(
+		reducer(
+			{
+				authorized: true,
+				accessToken: 'hoge',
+				scope: 'read',
+				createdAt: 1234,
+			},
+			actions.removeAuth(),
+		),
+	).toEqual(initialState)
+})

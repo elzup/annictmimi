@@ -6,11 +6,11 @@ import queryString from 'query-string'
 
 import type { State, Auth } from '../../types'
 import { doLogin, doLogout, requestToken } from './logic'
-// import * as selectors from './selectors'
+import * as selectors from './selectors'
 
 type OProps = {}
 type Props = {
-	auth: Auth,
+	isLogin: boolean,
 	doLogin: Function,
 	requestToken: ({ code: string }) => void,
 	doLogout: Function,
@@ -36,7 +36,7 @@ class Container extends React.Component<Props> {
 	render() {
 		const { props } = this
 		const qs = queryString.parse(window.location.search)
-		if (!('code' in qs) && !props.auth.authorized) {
+		if (!('code' in qs) && !props.isLogin) {
 			return <AuthContainer {...props} />
 		}
 		if ('code' in qs) {
@@ -47,9 +47,9 @@ class Container extends React.Component<Props> {
 	}
 }
 
-const ms = (state: State, op: any) => {
+const ms = (state: State) => {
 	return {
-		auth: state.AuthContainer,
+		isLogin: selectors.isLogin(state),
 	}
 }
 const conn: Connector<OProps, Props> = connect(ms, {

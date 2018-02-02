@@ -5,6 +5,7 @@ import request from 'superagent'
 import type { ThunkAction } from '../../types'
 import * as actions from './actions'
 import config from '../../config'
+import camelCaseRecursive from 'camelcase-keys-recursive'
 
 export function doLogin(): ThunkAction {
 	return dispatch => {
@@ -15,7 +16,7 @@ export function doLogin(): ThunkAction {
 }
 
 export function requestToken({ code }: { code: string }): ThunkAction {
-	return async dispatch => {
+	return dispatch => {
 		request
 			.post(config.annict.baseUrl + '/oauth/token')
 			.send({
@@ -26,10 +27,14 @@ export function requestToken({ code }: { code: string }): ThunkAction {
 				code: code,
 			})
 			.set('accept', 'json')
-			.end((err, res) => {
-				console.log(err)
-				console.log(res)
-				// Calling the end function will send the request
+			.end(async (err, res) => {
+				if (err) {
+					// TODO print error
+					window.location.href = '/'
+					return
+				}
+				await dispatch(actions.saveAuth(camelCaseRecursive(res.body)))
+				window.location.href = '/'
 			})
 	}
 }
