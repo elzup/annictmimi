@@ -21,6 +21,7 @@ test('handle SAVE_AUTH', () => {
 		accessToken: 'hoge',
 		scope: 'read',
 		createdAt: 1234,
+		authLoading: false,
 	})
 })
 
@@ -32,8 +33,40 @@ test('handle REMOVE_AUTH', () => {
 				accessToken: 'hoge',
 				scope: 'read',
 				createdAt: 1234,
+				authLoading: false,
 			},
 			actions.removeAuth(),
 		),
 	).toEqual(initialState)
+})
+
+test('handle AUTH_START', () => {
+	expect(reducer(initialState, actions.authStart())).toEqual({
+		authorized: false,
+		authLoading: true,
+		accessToken: '',
+		scope: '',
+		createdAt: 0,
+	})
+})
+
+test('handle AUTH_END', () => {
+	expect(
+		reducer(
+			{
+				authorized: false,
+				authLoading: true,
+				accessToken: '',
+				scope: '',
+				createdAt: 0,
+			},
+			actions.authEnd(),
+		),
+	).toEqual({
+		authorized: false,
+		authLoading: false,
+		accessToken: '',
+		scope: '',
+		createdAt: 0,
+	})
 })

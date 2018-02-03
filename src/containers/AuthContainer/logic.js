@@ -6,8 +6,11 @@ import type { ThunkAction } from '../../types'
 import * as actions from './actions'
 import { saveAnnictUser, removeUser } from '../AnnictUser/actions'
 import * as selectors from './selectors'
+import { getRehydrated } from '../App/selectors'
 import config from '../../config'
 import camelCaseRecursive from 'camelcase-keys-recursive'
+
+const sleep = msec => new Promise(resolve => setTimeout(resolve, msec))
 
 export function doLogin(): ThunkAction {
 	return dispatch => {
@@ -19,6 +22,14 @@ export function doLogin(): ThunkAction {
 
 export function requestToken({ code }: { code: string }): ThunkAction {
 	return async (dispatch, getState) => {
+		while (!getRehydrated(getState())) {
+			console.log('wait')
+			await sleep(1000)
+		}
+		if (selectors.getAuthLoading(getState())) {
+			return
+		}
+		dispatch(actions.authStart())
 		request
 			.post(config.annict.baseUrl + '/oauth/token')
 			.send({
@@ -31,6 +42,7 @@ export function requestToken({ code }: { code: string }): ThunkAction {
 			.end(async (err, res) => {
 				await dispatch(actions.saveAuth(camelCaseRecursive(res.body)))
 				await dispatch(fetchUser())
+				await dispatch(actions.authEnd())
 				window.location.href = '/'
 			})
 	}

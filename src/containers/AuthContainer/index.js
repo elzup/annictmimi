@@ -12,6 +12,7 @@ import HomeContainer from '../HomeContainer'
 type OProps = {}
 type Props = {
 	isLogin: boolean,
+	authLoading: boolean,
 	doLogin: Function,
 	doLogout: Function,
 	requestToken: ({ code: string }) => void,
@@ -34,8 +35,12 @@ class Container extends React.Component<Props> {
 			return <AuthContainer {...props} />
 		}
 		if ('code' in qs) {
-			props.requestToken({ code: qs.code })
-			return <span>認証中...</span>
+			if (props.isLogin) {
+				return <span>OK</span>
+			} else {
+				props.requestToken({ code: qs.code })
+				return <span>認証中...</span>
+			}
 		}
 		return <HomeContainer />
 	}
@@ -44,6 +49,7 @@ class Container extends React.Component<Props> {
 const ms = (state: State) => {
 	return {
 		isLogin: selectors.isLogin(state),
+		authLoading: selectors.getAuthLoading(state),
 		user: selectors.getUser(state),
 	}
 }

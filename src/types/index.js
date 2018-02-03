@@ -34,6 +34,7 @@ export type Auth = {
 	accessToken: string,
 	scope: string,
 	createdAt: number,
+	authLoading: boolean,
 }
 
 export type AnnictUser = {

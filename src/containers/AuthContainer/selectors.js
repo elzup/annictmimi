@@ -9,6 +9,10 @@ export function getToken(state: State) {
 	return state.AuthContainer.accessToken
 }
 
+export function getAuthLoading(state: State) {
+	return state.AuthContainer.authLoading
+}
+
 export function getUser(state: State) {
 	return state.AnnictUser
 }

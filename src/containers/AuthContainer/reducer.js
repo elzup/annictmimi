@@ -6,6 +6,7 @@ export type State = Auth
 
 export const initialState: State = {
 	authorized: false,
+	authLoading: false,
 	accessToken: '',
 	scope: '',
 	createdAt: 0,
@@ -13,6 +14,18 @@ export const initialState: State = {
 
 export default function(state: State = initialState, action: Action): State {
 	switch (action.type) {
+		case Actions.AUTH_START:
+			return {
+				...state,
+				authLoading: true,
+			}
+
+		case Actions.AUTH_END:
+			return {
+				...state,
+				authLoading: false,
+			}
+
 		case Actions.REMOVE_AUTH:
 			return initialState
 
