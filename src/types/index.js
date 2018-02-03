@@ -37,6 +37,24 @@ export type Auth = {
 	authLoading: boolean,
 }
 
+export type ID = string | number
+
+export type User = {
+	id: ID,
+	username: string,
+	name: string,
+	avatarUrl: string,
+}
+
+export type Record = {
+	id: ID,
+	user: ID,
+	ratingState: string | null,
+	comment: string,
+	likesCount: number,
+	createdAt: string,
+}
+
 export type AnnictUser = {
 	username: string,
 	name: string,
