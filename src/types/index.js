@@ -49,6 +49,7 @@ export type User = {
 export type Record = {
 	id: ID,
 	user: ID,
+	episode: ID,
 	ratingState: string | null,
 	comment: string,
 	likesCount: number,
@@ -57,6 +58,7 @@ export type Record = {
 
 export type Episode = {
 	id: ID,
+	work: ID,
 	number: string,
 	numberText: string,
 	sortNumber: number,
@@ -71,7 +73,7 @@ export type AnnictUser = {
 }
 
 export type WorkResponse = {
-	id: number,
+	id: ID,
 	title: string,
 	media: string,
 	images: {
@@ -84,7 +86,7 @@ export type WorkResponse = {
 }
 
 export type Work = {
-	id: number,
+	id: ID,
 	title: string,
 	media: string,
 	url: string,
@@ -102,7 +104,7 @@ export type Activity = {
 		| 'create_multiple_records'
 		| 'create_status',
 	createdAt: string,
-	work: Work,
+	work: WorkResponse,
 	episode: Episode,
 	record: Record,
 }

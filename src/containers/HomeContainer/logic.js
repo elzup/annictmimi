@@ -1,16 +1,13 @@
 // @flow
 
-import request from 'superagent'
-import camelCaseRecursive from 'camelcase-keys-recursive'
-
-import config from '../../config'
-import type { ThunkAction, ActivitiesResponse } from '../../types'
+import type { ThunkAction } from '../../types'
 import { receiveUsers } from '../UserContainer/actions'
+import { receiveWorks } from '../WorkContainer/actions'
 import { receiveEpisodes } from '../EpisodeContainer/actions'
 import { receiveRecords } from '../RecordContainer/actions'
 import { getRehydrated } from '../App/selectors'
 import { getUser, getToken } from '../AuthContainer/selectors'
-import _ from 'lodash'
+import * as client from '../../api/client'
 
 import { sleep } from '../../utils'
 
@@ -25,15 +22,10 @@ export function loadRecords(): ThunkAction {
 		const token = getToken(getState())
 		const user = getUser(getState())
 
-		const res = await request
-			.get(config.annict.baseUrl + '/v1/activities')
-			.query({ filter_username: user.username })
-			.set('Authorization', 'Bearer ' + token)
-		const body: ActivitiesResponse = camelCaseRecursive(res.body)
-		const recordActivities = body.activities.filter(
-			a => a.action === 'create_record',
-		)
-
-		console.log(recordActivities)
+		const res = await client.getActivity(token, user.username)
+		await dispatch(receiveWorks(res.works))
+		await dispatch(receiveUsers(res.users))
+		await dispatch(receiveEpisodes(res.episodes))
+		dispatch(receiveRecords(res.records))
 	}
 }
