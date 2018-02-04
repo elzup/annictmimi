@@ -24,3 +24,9 @@ const users = [
 test('handle RECEIVE_USERS', () => {
 	expect(reducer(initialState, actions.receiveUsers(users))).toEqual([100, 102])
 })
+
+test("handle RECEIVE_USERS don't duplicate", () => {
+	expect(
+		reducer(initialState, actions.receiveUsers([...users, ...users])),
+	).toEqual([100, 102])
+})

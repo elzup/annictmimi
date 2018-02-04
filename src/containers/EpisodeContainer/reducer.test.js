@@ -35,3 +35,9 @@ test('handle RECEIVE_EPISODES', () => {
 		1002,
 	])
 })
+
+test("handle RECEIVE_EPISODES don't duplicate", () => {
+	expect(
+		reducer(initialState, actions.receiveEpisodes([...episodes, ...episodes])),
+	).toEqual([1001, 1002])
+})

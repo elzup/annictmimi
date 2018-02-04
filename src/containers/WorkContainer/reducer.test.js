@@ -30,3 +30,9 @@ const works: Work[] = [
 test('handle RECEIVE_WORKS', () => {
 	expect(reducer(initialState, actions.receiveWorks(works))).toEqual([1, 2])
 })
+
+test("handle RECEIVE_WORKS don't duplicate", () => {
+	expect(
+		reducer(initialState, actions.receiveWorks([...works, ...works])),
+	).toEqual([1, 2])
+})
