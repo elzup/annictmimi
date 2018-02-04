@@ -5,6 +5,7 @@ import { receiveUsers } from '../UserContainer/actions'
 import { receiveWorks } from '../WorkContainer/actions'
 import { receiveEpisodes } from '../EpisodeContainer/actions'
 import { receiveRecords } from '../RecordContainer/actions'
+import { receiveMainRecords } from '../MainRecordContainer/actions'
 import { getRehydrated } from '../App/selectors'
 import { getUser, getToken } from '../AuthContainer/selectors'
 import * as client from '../../api/client'
@@ -23,9 +24,12 @@ export function loadRecords(): ThunkAction {
 		const user = getUser(getState())
 
 		const res = await client.getActivity(token, user.username)
-		await dispatch(receiveWorks(res.works))
-		await dispatch(receiveUsers(res.users))
-		await dispatch(receiveEpisodes(res.episodes))
-		dispatch(receiveRecords(res.records))
+		await Promise.all([
+			dispatch(receiveWorks(res.works)),
+			dispatch(receiveUsers(res.users)),
+			dispatch(receiveEpisodes(res.episodes)),
+			dispatch(receiveRecords(res.records)),
+		])
+		dispatch(receiveMainRecords(res.records))
 	}
 }
