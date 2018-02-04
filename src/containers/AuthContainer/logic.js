@@ -10,7 +10,7 @@ import { getRehydrated } from '../App/selectors'
 import config from '../../config'
 import camelCaseRecursive from 'camelcase-keys-recursive'
 
-const sleep = msec => new Promise(resolve => setTimeout(resolve, msec))
+import { sleep } from '../../utils'
 
 export function doLogin(): ThunkAction {
 	return dispatch => {

@@ -8,6 +8,8 @@ import RecordById from './containers/RecordById/reducer'
 import RecordContainer from './containers/RecordContainer/reducer'
 import UserById from './containers/UserById/reducer'
 import UserContainer from './containers/UserContainer/reducer'
+import WorkById from './containers/WorkById/reducer'
+import WorkContainer from './containers/WorkContainer/reducer'
 
 export default combineReducers({
 	AnnictUser,
@@ -18,4 +20,6 @@ export default combineReducers({
 	RecordContainer,
 	UserById,
 	UserContainer,
+	WorkById,
+	WorkContainer,
 })

@@ -69,3 +69,47 @@ export type AnnictUser = {
 	username: string,
 	name: string,
 }
+
+export type WorkResponse = {
+	id: number,
+	title: string,
+	media: string,
+	images: {
+		recommendedUrl: string,
+	},
+	episodesCount: number,
+	reviewsCount: number,
+	seasonName: string,
+	seasonNameText: string,
+}
+
+export type Work = {
+	id: number,
+	title: string,
+	media: string,
+	url: string,
+	reviewsCount: number,
+	seasonName: string,
+	seasonNameText: string,
+}
+
+export type Activity = {
+	id: ID,
+	user: User,
+	action:
+		| 'create_record'
+		| 'create_review'
+		| 'create_multiple_records'
+		| 'create_status',
+	createdAt: string,
+	work: Work,
+	episode: Episode,
+	record: Record,
+}
+
+export type ActivitiesResponse = {
+	activities: Activity[],
+	totalCount: number,
+	nextPage: number | null,
+	prevPage: number | null,
+}
