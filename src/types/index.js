@@ -55,6 +55,16 @@ export type Record = {
 	createdAt: string,
 }
 
+export type Episode = {
+	id: ID,
+	number: string,
+	numberText: string,
+	sortNumber: number,
+	title: string,
+	recordsCount: number,
+	recordCommentsCount: number,
+}
+
 export type AnnictUser = {
 	username: string,
 	name: string,
