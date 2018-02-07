@@ -1,10 +1,8 @@
 // @flow
 import * as React from 'react'
 import { connect, type Connector } from 'react-redux'
-import * as Ons from 'react-onsenui'
 
 import type { State, AnnictUser } from '../../types'
-import Navbar from '../../components/Navbar'
 import { getUser } from '../AuthContainer/selectors'
 import { doLogout } from '../AuthContainer/logic'
 import { loadRecords } from './logic'
@@ -25,15 +23,9 @@ class HomeContainer extends React.Component<Props> {
 	render() {
 		const { props } = this
 		return (
-			<Ons.Page
-				renderToolbar={() => (
-					<Ons.Toolbar>
-						<div className="center">Annict mimi</div>
-					</Ons.Toolbar>
-				)}
-			>
+			<div>
 				<MyRecordList />
-			</Ons.Page>
+			</div>
 		)
 	}
 }

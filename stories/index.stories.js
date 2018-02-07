@@ -1,13 +1,20 @@
-import React from 'react';
+// @flow
+import React from 'react'
+import List from 'material-ui/List'
 
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import { linkTo } from '@storybook/addon-links'
 
-import { Button, Welcome } from '@storybook/react/demo';
+import EpisodeCell from '../src/components/EpisodeCell'
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+import episodeComps from './episodeComp'
 
-storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
+storiesOf('EpisodeCell', module).add('example 1', () => (
+	<div style={{ width: '360px' }}>
+		<List>
+			<EpisodeCell episode={episodeComps[0]} />
+			<EpisodeCell episode={episodeComps[1]} />
+		</List>
+	</div>
+))

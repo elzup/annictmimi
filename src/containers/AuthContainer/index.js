@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react'
 import { connect, type Connector } from 'react-redux'
-import * as Ons from 'react-onsenui'
+import Button from 'material-ui/Button'
+
 import queryString from 'query-string'
 
 import type { State } from '../../types'
@@ -19,10 +20,12 @@ type Props = {
 }
 
 const AuthContainer = (props: Props) => (
-	<Ons.Page>
+	<div>
 		<p>Not Logined</p>
-		<Ons.Button onClick={props.doLogin}>Annict ログイン</Ons.Button>
-	</Ons.Page>
+		<Button color="primary" onClick={props.doLogin}>
+			Annict ログイン
+		</Button>
+	</div>
 )
 
 class Container extends React.Component<Props> {
