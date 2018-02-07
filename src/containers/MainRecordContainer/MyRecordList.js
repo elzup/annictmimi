@@ -1,18 +1,33 @@
 // @flow
 import * as React from 'react'
 import { connect, type Connector } from 'react-redux'
-import type { State, Episode } from '../../types'
+import List from 'material-ui/List'
+
+import type { State, EpisodeComp } from '../../types'
 import * as selectors from './selectors'
+import EpisodeCell from '../../components/EpisodeCell'
 
 type OProps = {}
 type Props = {
-	episodes: Episode[],
+	episodes: EpisodeComp[],
 }
 
 class Container extends React.Component<Props> {
 	render() {
 		const { props } = this
-		return <div>{JSON.stringify(props)}</div>
+		return (
+			<List>
+				{props.episodes.map((episode: EpisodeComp) => (
+					<EpisodeCell
+						key={episode.id}
+						onClick={() => {
+							console.log(episode.recordCommentsCount)
+						}}
+						episode={episode}
+					/>
+				))}
+			</List>
+		)
 	}
 }
 

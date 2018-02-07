@@ -1,5 +1,7 @@
 [ignore]
 .*/templates/.*
+.*/build/.*
+.*/coverage/.*
 
 [include]
 
