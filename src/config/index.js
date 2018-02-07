@@ -57,7 +57,7 @@ const authUrl =
 		response_type: 'code',
 		scope: 'read',
 	})
-console.log(authUrl)
+
 const config: Config = {
 	isDev,
 	annict: {

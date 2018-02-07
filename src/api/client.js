@@ -26,7 +26,7 @@ type GetActivityCallback = {
 
 const query = `{
 viewer {
-    activities(first: 10) {
+    activities(first: 30) {
       edges {
         node {
           ... on Record {
@@ -105,7 +105,6 @@ export async function getActivity(
 		result.works.push(work)
 		// const episode: EpisodeNode = edge.node
 	})
-	console.log(result)
 
 	return result
 }
