@@ -129,7 +129,7 @@ export type EpisodeComp = {
 
 export type RecordComp = {
 	id: ID,
-	user: ID,
+	user: User,
 	episode: EpisodeComp,
 	ratingState: string | null,
 	comment: string,
