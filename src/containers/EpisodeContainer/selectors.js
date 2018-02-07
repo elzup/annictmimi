@@ -1,6 +1,7 @@
 // @flow
 import type { State, ID, Episode, Work, EpisodeComp } from '../../types'
 import { getWork } from '../WorkContainer/selectors'
+import { getRecordsComp } from '../RecordContainer/selectors'
 import _ from 'lodash'
 
 export function getEpisode(state: State, episodeId: ID) {
@@ -11,6 +12,11 @@ export function getEpisodeComp(state: State, episodeId: ID) {
 	const episode = getEpisode(state, episodeId)
 	const work = getWork(state, episode.work)
 	return makeEpisodeComp(episode, work)
+}
+
+export function getEpisodeRecords(state: State, episodeId: ID) {
+	const episode = getEpisode(state, episodeId)
+	return getRecordsComp(state, episode.records)
 }
 
 function makeEpisodeComp(episode: Episode, work: Work): EpisodeComp {
