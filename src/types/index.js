@@ -115,3 +115,24 @@ export type ActivitiesResponse = {
 	nextPage: number | null,
 	prevPage: number | null,
 }
+
+export type EpisodeComp = {
+	id: ID,
+	work: Work,
+	number: string,
+	numberText: string,
+	sortNumber: number,
+	title: string,
+	recordsCount: number,
+	recordCommentsCount: number,
+}
+
+export type RecordComp = {
+	id: ID,
+	user: ID,
+	episode: EpisodeComp,
+	ratingState: string | null,
+	comment: string,
+	likesCount: number,
+	createdAt: string,
+}
