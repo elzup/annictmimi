@@ -9,7 +9,7 @@ export function getEpisode(state: State, episodeId: ID) {
 
 export function getEpisodeComp(state: State, episodeId: ID) {
 	const episode = getEpisode(state, episodeId)
-	const work = getWork(state, episode.id)
+	const work = getWork(state, episode.work)
 	return makeEpisodeComp(episode, work)
 }
 

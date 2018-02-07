@@ -8,6 +8,7 @@ import Navbar from '../../components/Navbar'
 import { getUser } from '../AuthContainer/selectors'
 import { doLogout } from '../AuthContainer/logic'
 import { loadRecords } from './logic'
+import MyRecordList from '../MainRecordContainer/MyRecordList'
 
 type OProps = {}
 type Props = {
@@ -31,8 +32,7 @@ class HomeContainer extends React.Component<Props> {
 					</Ons.Toolbar>
 				)}
 			>
-				<p>{props.user.username} Logined</p>
-				<Ons.Button onClick={props.doLogout}>ログアウト</Ons.Button>
+				<MyRecordList />
 			</Ons.Page>
 		)
 	}
