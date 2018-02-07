@@ -124,6 +124,7 @@ function normalizeEpisode(
 	})
 	const episode: Episode = {
 		..._.omit(episodeNode, ['records', 'work']),
+		records: result.records.map(r => r.id),
 		work: work.id,
 	}
 	return { ...result, episode, work }

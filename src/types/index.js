@@ -63,6 +63,7 @@ export type Episode = {
 	numberText: string,
 	sortNumber: number,
 	title: string,
+	records: ID[],
 	recordsCount: number,
 	recordCommentsCount: number,
 }
@@ -123,6 +124,7 @@ export type EpisodeComp = {
 	numberText: string,
 	sortNumber: number,
 	title: string,
+	records: ID[],
 	recordsCount: number,
 	recordCommentsCount: number,
 }
