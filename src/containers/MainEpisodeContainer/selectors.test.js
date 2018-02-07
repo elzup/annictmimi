@@ -6,7 +6,7 @@ let state: $Shape<State>
 
 beforeEach(() => {
 	state = {
-		MainRecordContainer: [1, 2],
+		MainEpisodeContainer: [3, 2],
 		RecordById: {
 			'1': {
 				id: 1,
@@ -91,34 +91,6 @@ beforeEach(() => {
 	}
 })
 
-test('getMyRecords', () => {
-	expect(selectros.getMyRecords(state)).toEqual([
-		{
-			id: 1,
-			comment: '「人とうさぎ」も「人と人(奴隷)」も命と命',
-			rating: null,
-			ratingState: 'average',
-			isModified: false,
-			likesCount: 0,
-			commentsCount: 0,
-			createdAt: '2018-01-09T12:02:09.815Z',
-			user: 884,
-			episode: 3,
-		},
-		{
-			id: 2,
-			comment: '「人とうさぎ」も「人と人(奴隷)」も命と命',
-			rating: null,
-			ratingState: 'average',
-			isModified: false,
-			likesCount: 0,
-			commentsCount: 0,
-			createdAt: '2018-01-09T12:02:09.815Z',
-			user: 884,
-			episode: 2,
-		},
-	])
-})
 test('getMyEpisodeIds', () => {
 	expect(selectros.getMyEpisodeIds(state)).toEqual([3, 2])
 })

@@ -6,7 +6,7 @@ import type { State, AnnictUser } from '../../types'
 import { getUser } from '../AuthContainer/selectors'
 import { doLogout } from '../AuthContainer/logic'
 import { loadRecords } from './logic'
-import MyRecordList from '../MainRecordContainer/MyRecordList'
+import MyEpisodeList from '../MainEpisodeContainer/MyEpisodeList'
 
 type OProps = {}
 type Props = {
@@ -24,7 +24,7 @@ class HomeContainer extends React.Component<Props> {
 		const { props } = this
 		return (
 			<div>
-				<MyRecordList />
+				<MyEpisodeList />
 			</div>
 		)
 	}
