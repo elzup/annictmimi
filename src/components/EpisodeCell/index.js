@@ -20,7 +20,10 @@ const EpisodeCell = (props: Props) => {
 
 	return (
 		<ListItem onClick={props.onClick}>
-			<Badge color="primary" badgeContent={4}>
+			<Badge
+				color="primary"
+				badgeContent={props.episode.newRecordCommentsCount}
+			>
 				<Avatar
 					style={{ objectFit: 'contain', borderRadius: '4px' }}
 					alt="Remy Sharp"
