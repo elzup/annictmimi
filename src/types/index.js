@@ -66,6 +66,7 @@ export type Episode = {
 	records: ID[],
 	recordsCount: number,
 	recordCommentsCount: number,
+	readedRecordCommentsCount: number,
 }
 
 export type AnnictUser = {
@@ -127,6 +128,8 @@ export type EpisodeComp = {
 	records: ID[],
 	recordsCount: number,
 	recordCommentsCount: number,
+	readedRecordCommentsCount: number,
+	newRecordCommentsCount: number,
 }
 
 export type RecordComp = {

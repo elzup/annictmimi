@@ -20,15 +20,21 @@ const EpisodeCell = (props: Props) => {
 
 	return (
 		<ListItem onClick={props.onClick}>
-			<Badge color="primary" badgeContent={4}>
-				<Avatar
-					style={{ objectFit: 'contain', borderRadius: '4px' }}
-					alt="Remy Sharp"
-					src={props.episode.work.url}
-				/>
+			<Avatar
+				style={{ objectFit: 'contain', borderRadius: '4px' }}
+				alt="Remy Sharp"
+				src={props.episode.work.url}
+			/>
 
-				<ListItemText primary={title} secondary={props.episode.work.title} />
-			</Badge>
+			<ListItemText primary={title} secondary={props.episode.work.title} />
+			<Badge
+				color="primary"
+				badgeContent={props.episode.newRecordCommentsCount || null}
+				style={{
+					visibility:
+						props.episode.newRecordCommentsCount === 0 ? 'hidden' : 'visible',
+				}}
+			/>
 		</ListItem>
 	)
 }
