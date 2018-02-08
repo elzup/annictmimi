@@ -70,3 +70,9 @@ test('handle RECEIVE_EPISODES non update readed', () => {
 		},
 	})
 })
+
+test('handle READ_EPISODE', () => {
+	expect(reducer({ '1002': episodes[1] }, actions.readEpisode('1002'))).toEqual(
+		{ '1002': { ...episodes[1], readedRecordCommentsCount: 20 } },
+	)
+})

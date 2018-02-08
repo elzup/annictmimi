@@ -21,6 +21,20 @@ export default function(state: State = initialState, action: Action): State {
 				}
 			}, state)
 
+		case Actions.READ_EPISODE:
+			if (!(action.episodeId in state)) {
+				return state
+			}
+
+			return {
+				...state,
+				[action.episodeId]: {
+					...state[action.episodeId],
+					readedRecordCommentsCount:
+						state[action.episodeId].recordCommentsCount,
+				},
+			}
+
 		default:
 			return state
 	}
