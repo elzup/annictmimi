@@ -3,6 +3,7 @@ import * as React from 'react'
 import { connect, type Connector } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import type { State, ID, RecordComp, EpisodeComp } from '../../types'
+import RecordItem from '../../components/RecordItem'
 import * as selectors from './selectors'
 
 type OProps = {
@@ -25,14 +26,20 @@ class Container extends React.Component<Props> {
 			// TODO:
 			return <div>invalida id</div>
 		}
-		return <div>{JSON.stringify(props)}</div>
+		return (
+			<div>
+				{props.records.map(record => (
+					<RecordItem key={record.id} record={record} onClick={() => {}} />
+				))}
+			</div>
+		)
 	}
 }
 
 const ms = (state: State, op: OProps) => {
 	const { match: { params: { episodeId } } } = op
 	return {
-		records: selectors.getEpisodeRecords(state, episodeId),
+		records: selectors.getEpisodeRecordsHasComment(state, episodeId),
 		episode: selectors.getEpisodeComp(state, episodeId),
 	}
 }
