@@ -5,7 +5,7 @@ import { receiveUsers } from '../UserContainer/actions'
 import { receiveWorks } from '../WorkContainer/actions'
 import { receiveEpisodes } from '../EpisodeContainer/actions'
 import { receiveRecords } from '../RecordContainer/actions'
-import { receiveMainRecords } from '../MainRecordContainer/actions'
+import { receiveMainEpisode } from '../MainEpisodeContainer/actions'
 import { getRehydrated } from '../App/selectors'
 import { getUser, getToken } from '../AuthContainer/selectors'
 import * as client from '../../api/client'
@@ -30,6 +30,6 @@ export function loadRecords(): ThunkAction {
 			dispatch(receiveEpisodes(res.episodes)),
 			dispatch(receiveRecords(res.records)),
 		])
-		dispatch(receiveMainRecords(res.records))
+		dispatch(receiveMainEpisode(res.episodes))
 	}
 }

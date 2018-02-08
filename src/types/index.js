@@ -63,6 +63,7 @@ export type Episode = {
 	numberText: string,
 	sortNumber: number,
 	title: string,
+	records: ID[],
 	recordsCount: number,
 	recordCommentsCount: number,
 }
@@ -76,13 +77,13 @@ export type WorkResponse = {
 	id: ID,
 	title: string,
 	media: string,
-	images: {
-		recommendedUrl: string,
+	image: {
+		recommendedImageUrl: string,
 	},
 	episodesCount: number,
 	reviewsCount: number,
 	seasonName: string,
-	seasonNameText: string,
+	seasonYear: string,
 }
 
 export type Work = {
@@ -114,4 +115,59 @@ export type ActivitiesResponse = {
 	totalCount: number,
 	nextPage: number | null,
 	prevPage: number | null,
+}
+
+export type EpisodeComp = {
+	id: ID,
+	work: Work,
+	number: string,
+	numberText: string,
+	sortNumber: number,
+	title: string,
+	records: ID[],
+	recordsCount: number,
+	recordCommentsCount: number,
+}
+
+export type RecordComp = {
+	id: ID,
+	user: User,
+	episode: EpisodeComp,
+	ratingState: string | null,
+	comment: string,
+	likesCount: number,
+	createdAt: string,
+}
+
+export type RecordResponse = {
+	id: ID,
+	user: User,
+	ratingState: string | null,
+	comment: string,
+	likesCount: number,
+	createdAt: string,
+}
+
+export type EpisodeNode = {
+	id: ID,
+	number: number,
+	numberText: string,
+	sortNumber: number,
+	title: string,
+	recordsCount: number,
+	recordCommentsCount: number,
+	work: WorkResponse,
+	records: {
+		edges: Array<{ node: RecordResponse }>,
+	},
+}
+
+export type ActivityQueryResponse = {
+	data: {
+		viewer: {
+			activities: {
+				edges: Array<{ node: { episode: EpisodeNode } } | { node: null }>,
+			},
+		},
+	},
 }

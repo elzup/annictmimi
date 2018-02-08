@@ -2,14 +2,18 @@
 
 import camelCaseRecursive from 'camelcase-keys-recursive'
 import request from 'superagent'
-import config from '../config'
+import _ from 'lodash'
 
+import config from '../config'
 import type {
-	ActivitiesResponse,
+	ID,
+	ActivityQueryResponse,
 	Work,
 	Episode,
+	EpisodeNode,
 	User,
 	Record,
+	RecordResponse,
 	WorkResponse,
 } from '../types'
 
@@ -20,15 +24,68 @@ type GetActivityCallback = {
 	records: Record[],
 }
 
+const query = `{
+viewer {
+    activities(first: 30) {
+      edges {
+        node {
+          ... on Record {
+            episode {
+							id
+              number
+              numberText
+              sortNumber
+              title
+              recordsCount
+              recordCommentsCount
+              work {
+                id
+                title
+                media
+                image {
+                  recommendedImageUrl
+                }
+                reviewsCount
+                seasonName
+                seasonYear
+              }
+              records (first: 10) {
+                edges {
+                  node {
+                    id
+                    user {
+                      id
+                      username
+                      name
+                      avatarUrl
+                    }
+                    comment
+                    likesCount
+                    createdAt
+                    ratingState
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`
+
 export async function getActivity(
 	token: string,
 	username: string,
 ): Promise<GetActivityCallback> {
 	const res = await request
-		.get(config.annict.baseUrl + '/v1/activities')
-		.query({ filter_username: username })
+		.post(config.annict.baseUrl + '/graphql')
+		.send({ query })
 		.set('Authorization', 'Bearer ' + token)
-	const body: ActivitiesResponse = camelCaseRecursive(res.body, { deep: true })
+	const body: ActivityQueryResponse = camelCaseRecursive(res.body, {
+		deep: true,
+	})
 
 	const result = {
 		works: [],
@@ -36,23 +93,54 @@ export async function getActivity(
 		users: [],
 		records: [],
 	}
-	body.activities.forEach(activity => {
-		if (activity.action !== 'create_record') {
+	body.data.viewer.activities.edges.forEach(edge => {
+		if (_.isEmpty(edge.node) || edge.node === null) {
 			return
 		}
-		const { episode, user, record } = activity
-		const work = normalizeWork(activity.work)
-		episode.work = work.id
-		record.user = user.id
-		record.episode = episode.id
-
-		result.works.push(work)
-		result.users.push(user)
+		const episodeNode: EpisodeNode = edge.node.episode
+		const { episode, work, users, records } = normalizeEpisode(episodeNode)
+		result.users = _.union(result.users, users)
+		result.records = _.union(result.records, records)
 		result.episodes.push(episode)
-		result.records.push(record)
+		result.works.push(work)
+		// const episode: EpisodeNode = edge.node
 	})
 
 	return result
+}
+
+function normalizeEpisode(
+	episodeNode: EpisodeNode,
+): { episode: Episode, work: Work, users: User[], records: Record[] } {
+	const result = {
+		users: [],
+		records: [],
+	}
+	const work = normalizeWork(episodeNode.work)
+	episodeNode.records.edges.forEach(edge => {
+		const { record, user } = normalizeRecord(edge.node, episodeNode.id)
+		result.records.push(record)
+		result.users.push(user)
+	})
+	const episode: Episode = {
+		..._.omit(episodeNode, ['records', 'work']),
+		records: result.records.map(r => r.id),
+		work: work.id,
+	}
+	return { ...result, episode, work }
+}
+
+function normalizeRecord(
+	recordNode: RecordResponse,
+	episodeId: ID,
+): { user: User, record: Record } {
+	const { user } = recordNode
+	const record: Record = {
+		..._.omit(recordNode, 'user'),
+		user: user.id,
+		episode: episodeId,
+	}
+	return { record, user }
 }
 
 function normalizeWork(workRes: WorkResponse): Work {
@@ -60,9 +148,9 @@ function normalizeWork(workRes: WorkResponse): Work {
 		id: workRes.id,
 		title: workRes.title,
 		media: workRes.media,
-		url: workRes.images.recommendedUrl,
+		url: workRes.image.recommendedImageUrl,
 		reviewsCount: workRes.reviewsCount,
 		seasonName: workRes.seasonName,
-		seasonNameText: workRes.seasonNameText,
+		seasonNameText: workRes.seasonYear + workRes.seasonName,
 	}
 }

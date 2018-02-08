@@ -8,7 +8,7 @@ test('provide the initial state', () => {
 
 const episodes = [
 	{
-		id: 1001,
+		id: 2,
 		work: 3,
 		number: '1',
 		numberText: '1',
@@ -19,7 +19,7 @@ const episodes = [
 		recordCommentsCount: 5,
 	},
 	{
-		id: 1002,
+		id: 3,
 		work: 4,
 		number: '2',
 		numberText: '2',
@@ -31,15 +31,15 @@ const episodes = [
 	},
 ]
 
-test('handle RECEIVE_EPISODES', () => {
-	expect(reducer(initialState, actions.receiveEpisodes(episodes))).toEqual([
-		1001,
-		1002,
+test('handle RECEIVE_MAIN_EPISODE', () => {
+	expect(reducer(initialState, actions.receiveMainEpisode(episodes))).toEqual([
+		2,
+		3,
 	])
 })
 
-test("handle RECEIVE_EPISODES don't duplicate", () => {
+test("handle RECEIVE_MAIN_EPISODE don't duplicate", () => {
 	expect(
-		reducer(initialState, actions.receiveEpisodes([...episodes, ...episodes])),
-	).toEqual([1001, 1002])
+		reducer([2], actions.receiveMainEpisode([...episodes, ...episodes])),
+	).toEqual([2, 3])
 })

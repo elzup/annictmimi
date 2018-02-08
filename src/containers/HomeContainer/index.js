@@ -1,13 +1,14 @@
 // @flow
 import * as React from 'react'
 import { connect, type Connector } from 'react-redux'
-import * as Ons from 'react-onsenui'
+import { withRouter } from 'react-router-dom'
 
 import type { State, AnnictUser } from '../../types'
-import Navbar from '../../components/Navbar'
 import { getUser } from '../AuthContainer/selectors'
 import { doLogout } from '../AuthContainer/logic'
 import { loadRecords } from './logic'
+import MyEpisodeList from '../MainEpisodeContainer/MyEpisodeList'
+import NavBarContainer from '../NavBarContainer'
 
 type OProps = {}
 type Props = {
@@ -22,18 +23,11 @@ class HomeContainer extends React.Component<Props> {
 		this.props.loadRecords()
 	}
 	render() {
-		const { props } = this
 		return (
-			<Ons.Page
-				renderToolbar={() => (
-					<Ons.Toolbar>
-						<div className="center">Annict mimi</div>
-					</Ons.Toolbar>
-				)}
-			>
-				<p>{props.user.username} Logined</p>
-				<Ons.Button onClick={props.doLogout}>ログアウト</Ons.Button>
-			</Ons.Page>
+			<div>
+				<NavBarContainer />
+				<MyEpisodeList />
+			</div>
 		)
 	}
 }
@@ -44,4 +38,4 @@ const ms = (state: State) => ({
 
 const conn: Connector<OProps, Props> = connect(ms, { doLogout, loadRecords })
 
-export default conn(HomeContainer)
+export default withRouter(conn(HomeContainer))

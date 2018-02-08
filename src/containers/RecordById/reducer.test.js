@@ -10,6 +10,7 @@ const records = [
 	{
 		id: 2,
 		user: 2,
+		episode: 4,
 		ratingState: 'good',
 		comment: 'hoge',
 		likesCount: 20,
@@ -18,6 +19,7 @@ const records = [
 	{
 		id: 3,
 		user: 3,
+		episode: 5,
 		ratingState: 'good',
 		comment: 'hoge',
 		likesCount: 20,
