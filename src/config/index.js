@@ -39,7 +39,7 @@ const isDev = NODE_ENV === 'development'
 
 const configDevelopment = {
 	appName: 'Annict Mimi (Dev)',
-	appPath: '/',
+	appPath: '/#/',
 	admin: {
 		name: 'admin',
 		countMax: 100,
@@ -47,7 +47,7 @@ const configDevelopment = {
 }
 const configProduction = {
 	appName: 'Annict Mimi',
-	appPath: '/annict-mimi',
+	appPath: '/annict-mimi/#/',
 	admin: {
 		name: 'proadmin',
 		countMax: 100,

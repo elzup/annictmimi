@@ -22,13 +22,6 @@ export function doLogin(): ThunkAction {
 
 export function requestToken({ code }: { code: string }): ThunkAction {
 	return async (dispatch, getState) => {
-		while (!getRehydrated(getState())) {
-			console.log('wait')
-			await sleep(1000)
-		}
-		if (selectors.getAuthLoading(getState())) {
-			return
-		}
 		dispatch(actions.authStart())
 		request
 			.post(config.annict.baseUrl + '/oauth/token')
@@ -43,7 +36,6 @@ export function requestToken({ code }: { code: string }): ThunkAction {
 				await dispatch(actions.saveAuth(camelCaseRecursive(res.body)))
 				await dispatch(fetchUser())
 				await dispatch(actions.authEnd())
-				window.location.href = '/'
 			})
 	}
 }
