@@ -1,15 +1,30 @@
 {
-	"short_name": "TODO:",
-	"name": "TODO:",
+	"short_name": "AnnictMimi",
+	"name": "AnnictMimi",
 	"icons": [
 		{
+			"src": "launcher-icon-1x.png",
+			"type": "image/png",
+			"sizes": "48x48"
+		},
+		{
+			"src": "launcher-icon-2x.png",
+			"type": "image/png",
+			"sizes": "96x96"
+		},
+		{
+			"src": "launcher-icon-4x.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
 			"src": "favicon.ico",
-			"sizes": "64x64 32x32 24x24 16x16",
+			"sizes": "32x32",
 			"type": "image/x-icon"
 		}
 	],
 	"start_url": "./index.html",
 	"display": "standalone",
-	"theme_color": "#000000",
+	"theme_color": "#D5698A",
 	"background_color": "#ffffff"
 }
