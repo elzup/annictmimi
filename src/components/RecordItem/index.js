@@ -5,7 +5,13 @@ import { ListItem, ListItemText } from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
 import moment from 'moment'
 
+import styled from 'styled-components'
+
 import type { RecordComp } from '../../types'
+
+const Name = styled.h3`
+	padding: 0;
+`
 
 type Props = {
 	record: RecordComp,
@@ -25,11 +31,11 @@ const RecordItem = (props: Props) => {
 			<ListItemText
 				primary={
 					<div>
-						<p>{user.name}</p>
+						<Name>{user.name}</Name>
 						<p>{record.comment}</p>
 					</div>
 				}
-				secondary={<p>{timeLabel}</p>}
+				secondary={timeLabel}
 			/>
 		</ListItem>
 	)

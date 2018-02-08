@@ -63,16 +63,6 @@ export function fetchUser(): ThunkAction {
 	}
 }
 
-export function fetchUserRecords(): ThunkAction {
-	return async (dispatch, getState) => {
-		const { username } = selectors.getUser(getState())
-		const token = selectors.getToken(getState())
-		const res = await request
-			.get(config.annict.baseUrl + '/v1/me')
-			.query({ access_token: token })
-	}
-}
-
 export function doLogout(): ThunkAction {
 	return async dispatch => {
 		await dispatch(actions.removeAuth())

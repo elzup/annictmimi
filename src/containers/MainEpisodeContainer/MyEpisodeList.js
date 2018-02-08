@@ -19,7 +19,7 @@ class Container extends React.Component<Props> {
 		return (
 			<List>
 				{props.episodes.map((episode: EpisodeComp) => (
-					<Link to={`/ep/${episode.id}`}>
+					<Link key={episode.id} to={`/ep/${episode.id}`}>
 						<EpisodeCell
 							key={episode.id}
 							onClick={() => {}}

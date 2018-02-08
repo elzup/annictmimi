@@ -1,5 +1,5 @@
 // @flow
-import type { State, ID, Record, User, RecordComp, Episode } from '../../types'
+import type { State, ID, Record, User, RecordComp } from '../../types'
 import { getUser } from '../UserContainer/selectors'
 import _ from 'lodash'
 
