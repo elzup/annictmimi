@@ -5,6 +5,7 @@ import Button from 'material-ui/Button'
 import { withRouter, Redirect } from 'react-router-dom'
 
 import queryString from 'query-string'
+import config from '../../config'
 
 import type { State } from '../../types'
 import { doLogin, doLogout, requestToken } from './logic'
@@ -16,6 +17,7 @@ type Props = {
 	authLoading: boolean,
 	doLogin: Function,
 	doLogout: Function,
+	history: any, // HACKME
 	requestToken: ({ code: string }) => void,
 }
 
@@ -43,7 +45,7 @@ class Container extends React.Component<Props> {
 				return <span>認証中...</span>
 			}
 		}
-		return <Redirect to={'/'} />
+		return <Redirect to={config.appPath} />
 	}
 }
 
