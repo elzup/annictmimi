@@ -5,17 +5,19 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import AuthContainer from '../AuthContainer'
 import Auth from '../AuthContainer/Auth'
 import HomeContainer from '../HomeContainer'
+import EpisodeContainer from '../EpisodeContainer'
 
-const App = () => (
+const RouteApp = () => (
 	<Router>
-		<div>
+		<Switch>
 			<Route exact path="/login" component={AuthContainer} />
 			<Auth>
 				<Switch>
-					<Route path="/" component={HomeContainer} />
+					<Route exact path="/" component={HomeContainer} />
+					<Route path="/ep/:episodeId" component={EpisodeContainer} />
 				</Switch>
 			</Auth>
-		</div>
+		</Switch>
 	</Router>
 )
-export default App
+export default RouteApp

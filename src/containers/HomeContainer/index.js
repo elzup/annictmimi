@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react'
 import { connect, type Connector } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 import type { State, AnnictUser } from '../../types'
 import { getUser } from '../AuthContainer/selectors'
@@ -21,7 +22,6 @@ class HomeContainer extends React.Component<Props> {
 		this.props.loadRecords()
 	}
 	render() {
-		const { props } = this
 		return (
 			<div>
 				<MyEpisodeList />
@@ -36,4 +36,4 @@ const ms = (state: State) => ({
 
 const conn: Connector<OProps, Props> = connect(ms, { doLogout, loadRecords })
 
-export default conn(HomeContainer)
+export default withRouter(conn(HomeContainer))

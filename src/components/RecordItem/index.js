@@ -17,10 +17,10 @@ const RecordItem = (props: Props) => {
 
 	return (
 		<ListItem
-			leftAvatar={<Avatar src={user.avatarUrl} />}
-			primaryText={<p>{user.name}</p>}
-			secondaryText={<p>{record.comment}</p>}
-			secondaryTextLines={2}
+			leftavatar={<Avatar src={user.avatarUrl} />}
+			primarytext={<p>{user.name}</p>}
+			secondarytext={<p>{record.comment}</p>}
+			secondarytextlines={2}
 		/>
 	)
 }

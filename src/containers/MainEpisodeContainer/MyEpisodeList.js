@@ -6,6 +6,8 @@ import List from 'material-ui/List'
 import type { State, EpisodeComp } from '../../types'
 import * as selectors from './selectors'
 import EpisodeCell from '../../components/EpisodeCell'
+import createHistory from 'history/createBrowserHistory'
+export const history = createHistory()
 
 type OProps = {}
 type Props = {
@@ -21,7 +23,7 @@ class Container extends React.Component<Props> {
 					<EpisodeCell
 						key={episode.id}
 						onClick={() => {
-							console.log(episode.recordCommentsCount)
+							history.push(`/#/ep/${episode.id}`)
 						}}
 						episode={episode}
 					/>
