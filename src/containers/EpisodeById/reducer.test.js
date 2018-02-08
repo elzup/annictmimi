@@ -17,6 +17,7 @@ const episodes = [
 		records: [1, 2],
 		recordsCount: 10,
 		recordCommentsCount: 5,
+		readedRecordCommentsCount: 0,
 	},
 	{
 		id: 1002,
@@ -27,7 +28,8 @@ const episodes = [
 		title: 'fuga',
 		records: [3, 4],
 		recordsCount: 11,
-		recordCommentsCount: 6,
+		recordCommentsCount: 20,
+		readedRecordCommentsCount: 0,
 	},
 ]
 
@@ -35,5 +37,36 @@ test('handle RECEIVE_EPISODES', () => {
 	expect(reducer(initialState, actions.receiveEpisodes(episodes))).toEqual({
 		'1001': episodes[0],
 		'1002': episodes[1],
+	})
+})
+
+test('handle RECEIVE_EPISODES non update readed', () => {
+	expect(
+		reducer(
+			{
+				'1001': {
+					...episodes[0],
+					recordCommentsCount: 10,
+					readedRecordCommentsCount: 5,
+				},
+				'1002': {
+					...episodes[1],
+					recordCommentsCount: 20,
+					readedRecordCommentsCount: 5,
+				},
+			},
+			actions.receiveEpisodes(episodes),
+		),
+	).toEqual({
+		'1001': {
+			...episodes[0],
+			recordCommentsCount: 5,
+			readedRecordCommentsCount: 5,
+		},
+		'1002': {
+			...episodes[1],
+			recordCommentsCount: 20,
+			readedRecordCommentsCount: 5,
+		},
 	})
 })

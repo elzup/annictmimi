@@ -9,7 +9,17 @@ export const initialState: State = {}
 export default function(state: State = initialState, action: Action): State {
 	switch (action.type) {
 		case Actions.RECEIVE_EPISODES:
-			return action.episodes.reduce((p, c) => ({ ...p, [c.id]: c }), state)
+			return action.episodes.reduce((p, c) => {
+				const readedRecordCommentsCount =
+					c.id in state ? state[c.id].readedRecordCommentsCount : 0
+				return {
+					...p,
+					[c.id]: {
+						...c,
+						readedRecordCommentsCount,
+					},
+				}
+			}, state)
 
 		default:
 			return state
