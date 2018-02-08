@@ -8,6 +8,7 @@ import { getUser } from '../AuthContainer/selectors'
 import { doLogout } from '../AuthContainer/logic'
 import { loadRecords } from './logic'
 import MyEpisodeList from '../MainEpisodeContainer/MyEpisodeList'
+import NavBarContainer from '../NavBarContainer'
 
 type OProps = {}
 type Props = {
@@ -24,6 +25,7 @@ class HomeContainer extends React.Component<Props> {
 	render() {
 		return (
 			<div>
+				<NavBarContainer />
 				<MyEpisodeList />
 			</div>
 		)
