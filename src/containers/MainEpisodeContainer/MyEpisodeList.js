@@ -6,8 +6,7 @@ import List from 'material-ui/List'
 import type { State, EpisodeComp } from '../../types'
 import * as selectors from './selectors'
 import EpisodeCell from '../../components/EpisodeCell'
-import createHistory from 'history/createBrowserHistory'
-export const history = createHistory()
+import { Link } from 'react-router-dom'
 
 type OProps = {}
 type Props = {
@@ -20,13 +19,13 @@ class Container extends React.Component<Props> {
 		return (
 			<List>
 				{props.episodes.map((episode: EpisodeComp) => (
-					<EpisodeCell
-						key={episode.id}
-						onClick={() => {
-							history.push(`/#/ep/${episode.id}`)
-						}}
-						episode={episode}
-					/>
+					<Link to={`/ep/${episode.id}`}>
+						<EpisodeCell
+							key={episode.id}
+							onClick={() => {}}
+							episode={episode}
+						/>
+					</Link>
 				))}
 			</List>
 		)
