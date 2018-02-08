@@ -58,7 +58,7 @@ const authUrl =
 		client_id: REACT_APP_ANNICT_CLIENT_ID,
 		redirect_uri: REACT_APP_ANNICT_REDIRECT,
 		response_type: 'code',
-		scope: 'read',
+		scope: 'read write',
 	})
 
 const config: Config = {
