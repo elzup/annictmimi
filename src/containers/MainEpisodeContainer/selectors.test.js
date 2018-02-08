@@ -44,6 +44,7 @@ beforeEach(() => {
 				records: [1, 2],
 				recordsCount: 25,
 				recordCommentsCount: 5,
+				readedRecordCommentsCount: 0,
 				work: 101,
 			},
 			'2': {
@@ -55,6 +56,7 @@ beforeEach(() => {
 				records: [3, 4],
 				recordsCount: 22,
 				recordCommentsCount: 5,
+				readedRecordCommentsCount: 0,
 				work: 101,
 			},
 			'3': {
@@ -66,6 +68,7 @@ beforeEach(() => {
 				records: [5, 6],
 				recordsCount: 22,
 				recordCommentsCount: 5,
+				readedRecordCommentsCount: 0,
 				work: 102,
 			},
 		},
