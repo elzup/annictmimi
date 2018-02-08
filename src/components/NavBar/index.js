@@ -5,16 +5,26 @@ import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import Typography from 'material-ui/Typography'
 import IconButton from 'material-ui/IconButton'
-import MenuIcon from 'material-ui-icons/Menu'
 import AccountCircle from 'material-ui-icons/AccountCircle'
 import Menu, { MenuItem } from 'material-ui/Menu'
 import type { AnnictUser } from '../../types'
 
-export type Props = {
-	isLogin: boolean,
-	profile?: AnnictUser,
-	doLogout: Function,
-}
+import config from '../../config'
+
+export type Props =
+	| {
+			isLogin: true,
+			profile: AnnictUser,
+			title?: string,
+			leftButton?: React.Node,
+			doLogout: Function,
+		}
+	| {
+			isLogin: false,
+			title?: string,
+			leftButton?: React.Node,
+			doLogout: Function,
+		}
 
 type State = {
 	anchorEl: any,
@@ -23,6 +33,11 @@ type State = {
 class NavBar extends React.Component<Props, State> {
 	state = {
 		anchorEl: null,
+	}
+
+	static defaultProps = {
+		title: config.appName,
+		leftButton: null,
 	}
 
 	handleMenu = (event: Event) => {
@@ -42,11 +57,9 @@ class NavBar extends React.Component<Props, State> {
 			<div>
 				<AppBar position="static">
 					<Toolbar>
-						<IconButton color="inherit" aria-label="Menu">
-							<MenuIcon />
-						</IconButton>
+						{props.leftButton}
 						<Typography variant="title" color="inherit">
-							Title
+							{props.title}
 						</Typography>
 						{props.isLogin && (
 							<div>
@@ -72,8 +85,7 @@ class NavBar extends React.Component<Props, State> {
 									open={open}
 									onClose={this.handleClose}
 								>
-									<MenuItem onClick={this.handleClose}>Profile</MenuItem>
-									<MenuItem onClick={this.handleClose}>My account</MenuItem>
+									<MenuItem onClick={props.doLogout}>Logout</MenuItem>
 								</Menu>
 							</div>
 						)}

@@ -21,6 +21,7 @@ if (
 
 type Config = {
 	+isDev: boolean,
+	+appName: string,
 	+annict: {
 		+id: string,
 		+secret: string,
@@ -36,12 +37,14 @@ type Config = {
 const isDev = NODE_ENV === 'development'
 
 const configDevelopment = {
+	appName: 'Annict Mimi (Dev)',
 	admin: {
 		name: 'admin',
 		countMax: 100,
 	},
 }
 const configProduction = {
+	appName: 'Annict Mimi',
 	admin: {
 		name: 'proadmin',
 		countMax: 100,
