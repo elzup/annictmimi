@@ -2,13 +2,13 @@
 import * as React from 'react'
 import { connect, type Connector } from 'react-redux'
 import Button from 'material-ui/Button'
+import { Redirect } from 'react-router-dom'
 
 import queryString from 'query-string'
 
 import type { State } from '../../types'
 import { doLogin, doLogout, requestToken } from './logic'
 import * as selectors from './selectors'
-import HomeContainer from '../HomeContainer'
 
 type OProps = {}
 type Props = {
@@ -29,8 +29,6 @@ const AuthContainer = (props: Props) => (
 )
 
 class Container extends React.Component<Props> {
-	componentDidMount() {}
-
 	render() {
 		const { props } = this
 		const qs = queryString.parse(window.location.search)
@@ -45,11 +43,11 @@ class Container extends React.Component<Props> {
 				return <span>認証中...</span>
 			}
 		}
-		return <HomeContainer />
+		return <Redirect to={'/'} />
 	}
 }
 
-const ms = (state: State) => {
+const ms = (state: State, op: OProps) => {
 	return {
 		isLogin: selectors.isLogin(state),
 		authLoading: selectors.getAuthLoading(state),
