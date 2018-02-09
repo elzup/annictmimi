@@ -7,6 +7,7 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 // import { linkTo } from '@storybook/addon-links'
 
+import EpisodeHeader from '../src/components/EpisodeHeader'
 import EpisodeCell from '../src/components/EpisodeCell'
 import RecordItem from '../src/components/RecordItem'
 import RatingLabel from '../src/components/RatingLabel'
@@ -17,8 +18,34 @@ import { episode1, episode2, record1, record2 } from './dummyData'
 
 const Screen = styled.div`
 	width: 360px;
+	min-height: 732px;
 	border: solid gray 3px;
 `
+
+storiesOf('EpisodeHeader', module)
+	.add('normal', () => (
+		<Screen>
+			<EpisodeHeader episode={episode1} />
+		</Screen>
+	))
+	.add('long title', () => (
+		<Screen>
+			<EpisodeHeader episode={episode2} />
+		</Screen>
+	))
+	.add('no image', () => (
+		<Screen>
+			<EpisodeHeader
+				episode={{
+					...episode1,
+					work: {
+						...episode1.work,
+						url: '',
+					},
+				}}
+			/>
+		</Screen>
+	))
 
 storiesOf('EpisodeCell', module).add('example 1', () => (
 	<Screen>

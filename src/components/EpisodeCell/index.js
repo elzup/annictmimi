@@ -22,7 +22,6 @@ const EpisodeCell = (props: Props) => {
 		<ListItem onClick={props.onClick}>
 			<Avatar
 				style={{ objectFit: 'contain', borderRadius: '4px' }}
-				alt="Remy Sharp"
 				src={props.episode.work.url}
 			/>
 
