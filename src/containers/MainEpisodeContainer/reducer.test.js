@@ -9,6 +9,7 @@ test('provide the initial state', () => {
 const episodes = [
 	{
 		id: 2,
+		annictId: 1002,
 		work: 3,
 		number: '1',
 		numberText: '1',
@@ -21,6 +22,7 @@ const episodes = [
 	},
 	{
 		id: 3,
+		annictId: 1002,
 		work: 4,
 		number: '2',
 		numberText: '2',

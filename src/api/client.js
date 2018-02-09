@@ -25,13 +25,14 @@ type GetActivityCallback = {
 }
 
 const query = `{
-viewer {
+  viewer {
     activities(first: 30) {
       edges {
         node {
           ... on Record {
             episode {
-							id
+              id
+              annictId
               number
               numberText
               sortNumber
@@ -40,6 +41,7 @@ viewer {
               recordCommentsCount
               work {
                 id
+                annictId
                 title
                 media
                 image {
@@ -49,12 +51,14 @@ viewer {
                 seasonName
                 seasonYear
               }
-              records (first: 30) {
+              records(first: 30) {
                 edges {
                   node {
                     id
+                    annictId
                     user {
                       id
+                      annictId
                       username
                       name
                       avatarUrl
@@ -146,12 +150,8 @@ function normalizeRecord(
 
 function normalizeWork(workRes: WorkResponse): Work {
 	return {
-		id: workRes.id,
-		title: workRes.title,
-		media: workRes.media,
+		..._.omit(workRes, 'image', 'episodesCount', 'seasonNameYear'),
 		url: workRes.image.recommendedImageUrl,
-		reviewsCount: workRes.reviewsCount,
-		seasonName: workRes.seasonName,
 		seasonNameText: workRes.seasonYear + workRes.seasonName,
 	}
 }

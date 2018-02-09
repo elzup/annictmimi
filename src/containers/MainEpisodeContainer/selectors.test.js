@@ -10,6 +10,7 @@ beforeEach(() => {
 		RecordById: {
 			'1': {
 				id: 1,
+				annictId: 1,
 				comment: '「人とうさぎ」も「人と人(奴隷)」も命と命',
 				rating: null,
 				ratingState: 'average',
@@ -22,6 +23,7 @@ beforeEach(() => {
 			},
 			'2': {
 				id: 2,
+				annictId: 2,
 				comment: '「人とうさぎ」も「人と人(奴隷)」も命と命',
 				rating: null,
 				ratingState: 'average',
@@ -37,6 +39,7 @@ beforeEach(() => {
 		EpisodeById: {
 			'1': {
 				id: 1,
+				annictId: 1,
 				number: '2',
 				numberText: '#2',
 				sortNumber: 2,
@@ -49,6 +52,7 @@ beforeEach(() => {
 			},
 			'2': {
 				id: 2,
+				annictId: 2,
 				number: '3',
 				numberText: '#3',
 				sortNumber: 3,
@@ -60,7 +64,8 @@ beforeEach(() => {
 				work: 101,
 			},
 			'3': {
-				id: 2,
+				id: 3,
+				annictId: 3,
 				number: '3',
 				numberText: '#3',
 				sortNumber: 3,
@@ -76,6 +81,7 @@ beforeEach(() => {
 		WorkById: {
 			'101': {
 				id: 101,
+				annictId: 101,
 				title: 'キノの旅 the Beautiful World',
 				media: 'tv',
 				url: '',
@@ -85,6 +91,7 @@ beforeEach(() => {
 			},
 			'102': {
 				id: 102,
+				annictId: 102,
 				title: 'ポプテピピック',
 				media: 'tv',
 				url: 'http://hoshiiro.jp/ogp.png',
@@ -105,6 +112,7 @@ test('getMyEpisodeComp', () => {
 	expect(selectros.getMyEpisodeComp(state)).toEqual([
 		{
 			id: 2,
+			annictId: 2,
 			number: '3',
 			numberText: '#3',
 			sortNumber: 3,
@@ -114,6 +122,7 @@ test('getMyEpisodeComp', () => {
 			recordCommentsCount: 5,
 			work: {
 				id: 102,
+				annictId: 102,
 				title: 'ポプテピピック',
 				media: 'tv',
 				url: 'http://hoshiiro.jp/ogp.png',
@@ -124,6 +133,7 @@ test('getMyEpisodeComp', () => {
 		},
 		{
 			id: 2,
+			annictId: 2,
 			number: '3',
 			numberText: '#3',
 			sortNumber: 3,
@@ -133,6 +143,7 @@ test('getMyEpisodeComp', () => {
 			recordCommentsCount: 5,
 			work: {
 				id: 101,
+				annictId: 101,
 				title: 'キノの旅 the Beautiful World',
 				media: 'tv',
 				url: '',

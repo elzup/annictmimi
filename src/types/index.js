@@ -43,6 +43,7 @@ export type RatingState = 'GREAT' | 'GOOD' | 'AVERAGE' | 'BAD' | null
 
 export type User = {
 	id: ID,
+	annictId: number,
 	username: string,
 	name: string,
 	avatarUrl: string,
@@ -50,6 +51,7 @@ export type User = {
 
 export type Record = {
 	id: ID,
+	annictId: number,
 	user: ID,
 	episode: ID,
 	ratingState: RatingState,
@@ -60,6 +62,7 @@ export type Record = {
 
 export type Episode = {
 	id: ID,
+	annictId: number,
 	work: ID,
 	number: string,
 	numberText: string,
@@ -78,6 +81,7 @@ export type AnnictUser = {
 
 export type WorkResponse = {
 	id: ID,
+	annictId: number,
 	title: string,
 	media: string,
 	image: {
@@ -91,6 +95,7 @@ export type WorkResponse = {
 
 export type Work = {
 	id: ID,
+	annictId: number,
 	title: string,
 	media: string,
 	url: string,
@@ -101,6 +106,7 @@ export type Work = {
 
 export type Activity = {
 	id: ID,
+	annictId: number,
 	user: User,
 	action:
 		| 'create_record'
@@ -122,6 +128,7 @@ export type ActivitiesResponse = {
 
 export type EpisodeComp = {
 	id: ID,
+	annictId: number,
 	work: Work,
 	number: string,
 	numberText: string,
@@ -136,6 +143,7 @@ export type EpisodeComp = {
 
 export type RecordComp = {
 	id: ID,
+	annictId: number,
 	user: User,
 	episode: EpisodeComp,
 	ratingState: RatingState,
@@ -146,6 +154,7 @@ export type RecordComp = {
 
 export type RecordResponse = {
 	id: ID,
+	annictId: number,
 	user: User,
 	ratingState: RatingState,
 	comment: string,
@@ -155,6 +164,7 @@ export type RecordResponse = {
 
 export type EpisodeNode = {
 	id: ID,
+	annictId: number,
 	number: number,
 	numberText: string,
 	sortNumber: number,
