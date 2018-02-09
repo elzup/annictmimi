@@ -39,6 +39,8 @@ export type Auth = {
 
 export type ID = string | number
 
+export type RatingState = 'GREAT' | 'GOOD' | 'AVERAGE' | 'BAD' | null
+
 export type User = {
 	id: ID,
 	username: string,
@@ -50,7 +52,7 @@ export type Record = {
 	id: ID,
 	user: ID,
 	episode: ID,
-	ratingState: string | null,
+	ratingState: RatingState,
 	comment: string,
 	likesCount: number,
 	createdAt: string,
@@ -136,7 +138,7 @@ export type RecordComp = {
 	id: ID,
 	user: User,
 	episode: EpisodeComp,
-	ratingState: string | null,
+	ratingState: RatingState,
 	comment: string,
 	likesCount: number,
 	createdAt: string,
@@ -145,7 +147,7 @@ export type RecordComp = {
 export type RecordResponse = {
 	id: ID,
 	user: User,
-	ratingState: string | null,
+	ratingState: RatingState,
 	comment: string,
 	likesCount: number,
 	createdAt: string,

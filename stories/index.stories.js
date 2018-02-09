@@ -9,6 +9,7 @@ import { action } from '@storybook/addon-actions'
 
 import EpisodeCell from '../src/components/EpisodeCell'
 import RecordItem from '../src/components/RecordItem'
+import RatingLabel from '../src/components/RatingLabel'
 import type { EpisodeComp, RecordComp } from '../src/types'
 import '../src/config/init'
 
@@ -33,5 +34,18 @@ storiesOf('RecordCell', module).add('example 1', () => (
 			<RecordItem record={records[0]} onClick={action('open record')} />
 			<RecordItem record={records[1]} onClick={action('open record')} />
 		</List>
+	</div>
+))
+
+storiesOf('RatingLabel', module).add('exists', () => (
+	<div style={{ width: '360px', padding: '50px' }}>
+		{['GREAT', 'GOOD', 'AVERAGE', 'BAD', null].map(rate => (
+			<div key={rate}>
+				<hr />
+				<p>{rate || 'null'}</p>
+				<RatingLabel ratingState={rate} />
+				<hr />
+			</div>
+		))}
 	</div>
 ))

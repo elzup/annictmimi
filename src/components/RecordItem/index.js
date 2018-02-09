@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 
-import { ListItem, ListItemText } from 'material-ui/List'
+import { ListItem } from 'material-ui/List'
 import Typography from 'material-ui/Typography'
 import Avatar from 'material-ui/Avatar'
 import moment from 'moment'
@@ -9,6 +9,7 @@ import moment from 'moment'
 import styled from 'styled-components'
 
 import type { RecordComp } from '../../types'
+import RatingLabel from '../RatingLabel'
 
 const Name = styled.p`
 	padding: 0;
@@ -18,10 +19,6 @@ const Name = styled.p`
 	line-height: 20px;
 	color: rgba(0, 0, 0, 0.54);
 `
-const Rating = styled.p`
-	padding: 0;
-`
-
 const Row = styled.div`
 	display: flex;
 `
@@ -54,7 +51,7 @@ const RecordItem = (props: Props) => {
 						{timeLabel}
 					</Typography>
 				</RowBetween>
-				<Rating>{record.ratingState}</Rating>
+				<RatingLabel ratingState={record.ratingState} />
 				<Typography
 					style={{ padding: '5px 0', margin: 0 }}
 					variant="body1"
