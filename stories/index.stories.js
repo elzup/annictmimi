@@ -10,6 +10,7 @@ import { action } from '@storybook/addon-actions'
 import EpisodeCell from '../src/components/EpisodeCell'
 import RecordItem from '../src/components/RecordItem'
 import type { EpisodeComp, RecordComp } from '../src/types'
+import '../src/config/init'
 
 import episodesData from './episodes.json'
 

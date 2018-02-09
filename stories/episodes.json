@@ -8,6 +8,8 @@
 			"title": "イモ☆ヨバ",
 			"recordsCount": 179,
 			"recordCommentsCount": 23,
+			"readedRecordCommentsCount": 10,
+			"newRecordCommentsCount": 13,
 			"work": {
 				"id": 5229,
 				"title": "ポプテピピック",
@@ -26,6 +28,8 @@
 			"title": "ふじさんとカレーめん",
 			"recordsCount": 322,
 			"recordCommentsCount": 79,
+			"readedRecordCommentsCount": 79,
+			"newRecordCommentsCount": 0,
 			"work": {
 				"id": 5459,
 				"title": "ゆるキャン△",
@@ -44,6 +48,8 @@
 			"title": "SWGP2018",
 			"recordsCount": 254,
 			"recordCommentsCount": 29,
+			"readedRecordCommentsCount": 10,
+			"newRecordCommentsCount": 19,
 			"work": {
 				"id": 5229,
 				"title": "ポプテピピック",
@@ -62,6 +68,8 @@
 			"title": "弟子のいる日常",
 			"recordsCount": 230,
 			"recordCommentsCount": 46,
+			"readedRecordCommentsCount": 41,
+			"newRecordCommentsCount": 45,
 			"work": {
 				"id": 5556,
 				"title": "りゅうおうのおしごと！",
@@ -80,6 +88,8 @@
 			"title": "ザ・ドキュメント",
 			"recordsCount": 317,
 			"recordCommentsCount": 45,
+			"readedRecordCommentsCount": 41,
+			"newRecordCommentsCount": 44,
 			"work": {
 				"id": 5229,
 				"title": "ポプテピピック",
@@ -98,6 +108,8 @@
 			"title": "異次元遊戯ヴァンヴー",
 			"recordsCount": 384,
 			"recordCommentsCount": 62,
+			"readedRecordCommentsCount": 61,
+			"newRecordCommentsCount": 61,
 			"work": {
 				"id": 5229,
 				"title": "ポプテピピック",
@@ -116,6 +128,8 @@
 			"title": "本の国 -Nothing Is Wriiten!-",
 			"recordsCount": 18,
 			"recordCommentsCount": 4,
+			"readedRecordCommentsCount": 1,
+			"newRecordCommentsCount": 3,
 			"work": {
 				"id": 498,
 				"title": "キノの旅 the Beautiful World",
@@ -134,6 +148,8 @@
 			"title": "魔法使いの国 -Potentials of Magic-",
 			"recordsCount": 21,
 			"recordCommentsCount": 3,
+			"readedRecordCommentsCount": 1,
+			"newRecordCommentsCount": 2,
 			"work": {
 				"id": 498,
 				"title": "キノの旅 the Beautiful World",
@@ -152,6 +168,8 @@
 			"title": "コロシアム（後編） -Avengers-",
 			"recordsCount": 21,
 			"recordCommentsCount": 4,
+			"readedRecordCommentsCount": 1,
+			"newRecordCommentsCount": 3,
 			"work": {
 				"id": 498,
 				"title": "キノの旅 the Beautiful World",
@@ -170,277 +188,8 @@
 			"title": "コロシアム（前編） -Avengers-",
 			"recordsCount": 22,
 			"recordCommentsCount": 3,
-			"work": {
-				"id": 498,
-				"title": "キノの旅 the Beautiful World",
-				"media": "tv",
-				"url": "",
-				"reviewsCount": 2,
-				"seasonName": "2003-spring",
-				"seasonNameText": "2003年春"
-			}
-		},
-		{
-			"id": 10223,
-			"number": "5",
-			"numberText": "#5",
-			"sortNumber": 5,
-			"title": "レールの上の三人の男 -On the Rails-",
-			"recordsCount": 21,
-			"recordCommentsCount": 5,
-			"work": {
-				"id": 498,
-				"title": "キノの旅 the Beautiful World",
-				"media": "tv",
-				"url": "",
-				"reviewsCount": 2,
-				"seasonName": "2003-spring",
-				"seasonNameText": "2003年春"
-			}
-		},
-		{
-			"id": 10222,
-			"number": "4",
-			"numberText": "#4",
-			"sortNumber": 4,
-			"title": "大人の国 -Natural Right-",
-			"recordsCount": 22,
-			"recordCommentsCount": 5,
-			"work": {
-				"id": 498,
-				"title": "キノの旅 the Beautiful World",
-				"media": "tv",
-				"url": "",
-				"reviewsCount": 2,
-				"seasonName": "2003-spring",
-				"seasonNameText": "2003年春"
-			}
-		},
-		{
-			"id": 96168,
-			"number": "1",
-			"numberText": "第1局",
-			"sortNumber": 10,
-			"title": "押しかけ弟子",
-			"recordsCount": 253,
-			"recordCommentsCount": 58,
-			"work": {
-				"id": 5556,
-				"title": "りゅうおうのおしごと！",
-				"media": "tv",
-				"url": "http://ryuoh-anime.com/template/sns.jpg",
-				"reviewsCount": 0,
-				"seasonName": "2018-winter",
-				"seasonNameText": "2018年冬"
-			}
-		},
-		{
-			"id": 10221,
-			"number": "3",
-			"numberText": "#3",
-			"sortNumber": 3,
-			"title": "予言の国 -We NO The Future-",
-			"recordsCount": 22,
-			"recordCommentsCount": 5,
-			"work": {
-				"id": 498,
-				"title": "キノの旅 the Beautiful World",
-				"media": "tv",
-				"url": "",
-				"reviewsCount": 2,
-				"seasonName": "2003-spring",
-				"seasonNameText": "2003年春"
-			}
-		},
-		{
-			"id": 10220,
-			"number": "2",
-			"numberText": "#2",
-			"sortNumber": 2,
-			"title": "人を喰った話 -I Want to Live.-",
-			"recordsCount": 25,
-			"recordCommentsCount": 5,
-			"work": {
-				"id": 498,
-				"title": "キノの旅 the Beautiful World",
-				"media": "tv",
-				"url": "",
-				"reviewsCount": 2,
-				"seasonName": "2003-spring",
-				"seasonNameText": "2003年春"
-			}
-		},
-		{
-			"id": 10228,
-			"number": "10",
-			"numberText": "#10",
-			"sortNumber": 10,
-			"title": "機械人形の話 -One-way Mission-",
-			"recordsCount": 19,
-			"recordCommentsCount": 2,
-			"work": {
-				"id": 498,
-				"title": "キノの旅 the Beautiful World",
-				"media": "tv",
-				"url": "",
-				"reviewsCount": 2,
-				"seasonName": "2003-spring",
-				"seasonNameText": "2003年春"
-			}
-		},
-		{
-			"id": 95922,
-			"number": "12",
-			"numberText": "第12話",
-			"sortNumber": 120,
-			"title": "羊たちの草原",
-			"recordsCount": 156,
-			"recordCommentsCount": 27,
-			"work": {
-				"id": 5345,
-				"title": "キノの旅 -the Beautiful World- the Animated Series",
-				"media": "tv",
-				"url": "http://www.kinonotabi-anime.com/assets/images/common/ogp.png",
-				"reviewsCount": 2,
-				"seasonName": "2017-autumn",
-				"seasonNameText": "2017年秋"
-			}
-		},
-		{
-			"id": 95691,
-			"number": "11",
-			"numberText": "第11話",
-			"sortNumber": 110,
-			"title": "大人の国",
-			"recordsCount": 161,
-			"recordCommentsCount": 26,
-			"work": {
-				"id": 5345,
-				"title": "キノの旅 -the Beautiful World- the Animated Series",
-				"media": "tv",
-				"url": "http://www.kinonotabi-anime.com/assets/images/common/ogp.png",
-				"reviewsCount": 2,
-				"seasonName": "2017-autumn",
-				"seasonNameText": "2017年秋"
-			}
-		},
-		{
-			"id": 95545,
-			"number": "10",
-			"numberText": "第10話",
-			"sortNumber": 100,
-			"title": "優しい国",
-			"recordsCount": 164,
-			"recordCommentsCount": 28,
-			"work": {
-				"id": 5345,
-				"title": "キノの旅 -the Beautiful World- the Animated Series",
-				"media": "tv",
-				"url": "http://www.kinonotabi-anime.com/assets/images/common/ogp.png",
-				"reviewsCount": 2,
-				"seasonName": "2017-autumn",
-				"seasonNameText": "2017年秋"
-			}
-		},
-		{
-			"id": 95447,
-			"number": "9",
-			"numberText": "第9話",
-			"sortNumber": 90,
-			"title":
-				"いろいろな国(山賊達の話／徳を積む国／料理の国／ティーの願い／美しい記憶の国／アニメなあとがきの国)",
-			"recordsCount": 170,
-			"recordCommentsCount": 30,
-			"work": {
-				"id": 5345,
-				"title": "キノの旅 -the Beautiful World- the Animated Series",
-				"media": "tv",
-				"url": "http://www.kinonotabi-anime.com/assets/images/common/ogp.png",
-				"reviewsCount": 2,
-				"seasonName": "2017-autumn",
-				"seasonNameText": "2017年秋"
-			}
-		},
-		{
-			"id": 95330,
-			"number": "8",
-			"numberText": "第8話",
-			"sortNumber": 80,
-			"title": "電波の国",
-			"recordsCount": 170,
-			"recordCommentsCount": 21,
-			"work": {
-				"id": 5345,
-				"title": "キノの旅 -the Beautiful World- the Animated Series",
-				"media": "tv",
-				"url": "http://www.kinonotabi-anime.com/assets/images/common/ogp.png",
-				"reviewsCount": 2,
-				"seasonName": "2017-autumn",
-				"seasonNameText": "2017年秋"
-			}
-		},
-		{
-			"id": 95218,
-			"number": "7",
-			"numberText": "第7話",
-			"sortNumber": 70,
-			"title": "歴史のある国",
-			"recordsCount": 176,
-			"recordCommentsCount": 21,
-			"work": {
-				"id": 5345,
-				"title": "キノの旅 -the Beautiful World- the Animated Series",
-				"media": "tv",
-				"url": "http://www.kinonotabi-anime.com/assets/images/common/ogp.png",
-				"reviewsCount": 2,
-				"seasonName": "2017-autumn",
-				"seasonNameText": "2017年秋"
-			}
-		},
-		{
-			"id": 10231,
-			"number": "13",
-			"numberText": "#13",
-			"sortNumber": 13,
-			"title": "優しい国 -Tomorrow Never Comes",
-			"recordsCount": 19,
-			"recordCommentsCount": 4,
-			"work": {
-				"id": 498,
-				"title": "キノの旅 the Beautiful World",
-				"media": "tv",
-				"url": "",
-				"reviewsCount": 2,
-				"seasonName": "2003-spring",
-				"seasonNameText": "2003年春"
-			}
-		},
-		{
-			"id": 10230,
-			"number": "12",
-			"numberText": "#12",
-			"sortNumber": 12,
-			"title": "平和な国 -Mother's Love-",
-			"recordsCount": 18,
-			"recordCommentsCount": 3,
-			"work": {
-				"id": 498,
-				"title": "キノの旅 the Beautiful World",
-				"media": "tv",
-				"url": "",
-				"reviewsCount": 2,
-				"seasonName": "2003-spring",
-				"seasonNameText": "2003年春"
-			}
-		},
-		{
-			"id": 10229,
-			"number": "11",
-			"numberText": "#11",
-			"sortNumber": 11,
-			"title": "彼女の旅 -Love and Bullets-",
-			"recordsCount": 18,
-			"recordCommentsCount": 1,
+			"readedRecordCommentsCount": 1,
+			"newRecordCommentsCount": 2,
 			"work": {
 				"id": 498,
 				"title": "キノの旅 the Beautiful World",
