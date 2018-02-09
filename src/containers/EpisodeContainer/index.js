@@ -10,6 +10,8 @@ import RecordItem from '../../components/RecordItem'
 import NavBarContainer from '../NavBarContainer'
 import * as selectors from './selectors'
 
+import { annict } from '../../utils'
+
 type OProps = {
 	match: {
 		params: {
@@ -48,9 +50,10 @@ class Container extends React.Component<Props> {
 						record={record}
 						onClick={() => {}}
 						onClickTimestamp={() => {
-							const url = `https://jp.annict.com/@${
-								record.user.username
-							}/records/${record.id}`
+							const url = annict.recordUrl(
+								record.user.username,
+								record.annictId,
+							)
 							window.open(url)
 						}}
 					/>
