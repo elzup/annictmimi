@@ -29,10 +29,9 @@ const EpisodeCell = (props: Props) => {
 			<ListItemText primary={title} secondary={props.episode.work.title} />
 			<Badge
 				color="primary"
-				badgeContent={props.episode.newRecordCommentsCount || null}
+				badgeContent={props.episode.newCount || null}
 				style={{
-					visibility:
-						props.episode.newRecordCommentsCount === 0 ? 'hidden' : 'visible',
+					visibility: props.episode.newCount === 0 ? 'hidden' : 'visible',
 				}}
 			/>
 		</ListItem>

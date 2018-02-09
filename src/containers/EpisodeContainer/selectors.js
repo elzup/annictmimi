@@ -39,8 +39,7 @@ export function getEpisodeRecordsHasComment(state: State, episodeId: ID) {
 function makeEpisodeComp(episode: Episode, work: Work): EpisodeComp {
 	return {
 		..._.omit(episode, 'work'),
-		newRecordCommentsCount:
-			episode.recordCommentsCount - episode.readedRecordCommentsCount,
+		newCount: episode.recordCommentsCount - episode.readedCount,
 		work,
 	}
 }

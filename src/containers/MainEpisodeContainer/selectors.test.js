@@ -47,7 +47,7 @@ beforeEach(() => {
 				records: [1, 2],
 				recordsCount: 25,
 				recordCommentsCount: 5,
-				readedRecordCommentsCount: 0,
+				readedCount: 0,
 				work: 101,
 			},
 			'2': {
@@ -60,7 +60,7 @@ beforeEach(() => {
 				records: [3, 4],
 				recordsCount: 22,
 				recordCommentsCount: 5,
-				readedRecordCommentsCount: 0,
+				readedCount: 0,
 				work: 101,
 			},
 			'3': {
@@ -73,7 +73,7 @@ beforeEach(() => {
 				records: [5, 6],
 				recordsCount: 22,
 				recordCommentsCount: 5,
-				readedRecordCommentsCount: 0,
+				readedCount: 0,
 				work: 102,
 			},
 		},
@@ -111,14 +111,16 @@ test('getMyEpisodeIds', () => {
 test('getMyEpisodeComp', () => {
 	expect(selectros.getMyEpisodeComp(state)).toEqual([
 		{
-			id: 2,
-			annictId: 2,
+			id: 3,
+			annictId: 3,
 			number: '3',
 			numberText: '#3',
 			sortNumber: 3,
 			title: '予言の国 -We NO The Future-',
 			records: [5, 6],
 			recordsCount: 22,
+			newCount: 5,
+			readedCount: 0,
 			recordCommentsCount: 5,
 			work: {
 				id: 102,
@@ -139,6 +141,8 @@ test('getMyEpisodeComp', () => {
 			sortNumber: 3,
 			title: '予言の国 -We NO The Future-',
 			records: [3, 4],
+			newCount: 5,
+			readedCount: 0,
 			recordsCount: 22,
 			recordCommentsCount: 5,
 			work: {

@@ -18,7 +18,7 @@ const episodes = [
 		records: [1, 2],
 		recordsCount: 10,
 		recordCommentsCount: 5,
-		readedRecordCommentsCount: 0,
+		readedCount: 0,
 	},
 	{
 		id: 3,
@@ -31,7 +31,7 @@ const episodes = [
 		records: [3, 4],
 		recordsCount: 11,
 		recordCommentsCount: 6,
-		readedRecordCommentsCount: 0,
+		readedCount: 0,
 	},
 ]
 
