@@ -49,7 +49,7 @@ viewer {
                 seasonName
                 seasonYear
               }
-              records (first: 10) {
+              records (first: 30) {
                 edges {
                   node {
                     id
