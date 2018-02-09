@@ -3,6 +3,7 @@ import * as React from 'react'
 
 import { ListItem } from 'material-ui/List'
 import Typography from 'material-ui/Typography'
+import Button from 'material-ui/Button'
 import Avatar from 'material-ui/Avatar'
 import moment from 'moment'
 
@@ -31,6 +32,7 @@ const RowBetween = styled.div`
 type Props = {
 	record: RecordComp,
 	onClick: Function,
+	onClickTimestamp: Function,
 }
 
 const RecordItem = (props: Props) => {
@@ -40,16 +42,20 @@ const RecordItem = (props: Props) => {
 	const timeLabel = moment(record.createdAt).fromNow()
 
 	return (
-		<ListItem onClick={props.onClick}>
+		<ListItem>
 			<div style={{ width: '100%' }}>
 				<RowBetween>
 					<Row>
 						<Avatar style={{ height: 20, width: 20 }} src={user.avatarUrl} />
 						<Name>{user.name}</Name>
 					</Row>
-					<Typography variant="caption" align="right">
+					<Button
+						mini
+						style={{ minHeight: 0, padding: 0 }}
+						onClick={props.onClickTimestamp}
+					>
 						{timeLabel}
-					</Typography>
+					</Button>
 				</RowBetween>
 				<RatingLabel ratingState={record.ratingState} />
 				<Typography

@@ -43,7 +43,17 @@ class Container extends React.Component<Props> {
 					}
 				/>
 				{props.records.map(record => (
-					<RecordItem key={record.id} record={record} onClick={() => {}} />
+					<RecordItem
+						key={record.id}
+						record={record}
+						onClick={() => {}}
+						onClickTimestamp={() => {
+							const url = `https://jp.annict.com/@${
+								record.user.username
+							}/records/${record.id}`
+							window.open(url)
+						}}
+					/>
 				))}
 			</div>
 		)

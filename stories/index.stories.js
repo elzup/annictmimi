@@ -31,8 +31,16 @@ storiesOf('EpisodeCell', module).add('example 1', () => (
 storiesOf('RecordCell', module).add('example 1', () => (
 	<div style={{ width: '360px' }}>
 		<List>
-			<RecordItem record={records[0]} onClick={action('open record')} />
-			<RecordItem record={records[1]} onClick={action('open record')} />
+			<RecordItem
+				record={records[0]}
+				onClick={action('open record')}
+				onClickTimestamp={action('clicked timestamp')}
+			/>
+			<RecordItem
+				record={records[1]}
+				onClick={action('open record')}
+				onClickTimestamp={action('clicked timestamp')}
+			/>
 		</List>
 	</div>
 ))
