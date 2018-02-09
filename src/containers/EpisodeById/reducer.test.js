@@ -69,6 +69,33 @@ test('handle RECEIVE_EPISODES non update readed', () => {
 	})
 })
 
+test('handle RECEIVE_EPISODES update readed', () => {
+	expect(
+		reducer(
+			{
+				'1001': {
+					...episodes[0],
+					recordCommentsCount: 10,
+					readedCount: undefined,
+				},
+			},
+			actions.receiveEpisodes([
+				{
+					...episodes[0],
+					recordCommentsCount: 20,
+					readedCount: 10,
+				},
+			]),
+		),
+	).toEqual({
+		'1001': {
+			...episodes[0],
+			recordCommentsCount: 20,
+			readedCount: 10,
+		},
+	})
+})
+
 test('handle READ_EPISODE', () => {
 	expect(reducer({ '1002': episodes[1] }, actions.readEpisode('1002'))).toEqual(
 		{ '1002': { ...episodes[1], readedCount: 20 } },
