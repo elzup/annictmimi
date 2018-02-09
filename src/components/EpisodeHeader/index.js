@@ -2,13 +2,10 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import Typography from 'material-ui/Typography'
-import Avatar from 'material-ui/Avatar'
 
 import type { EpisodeComp } from '../../types'
 
-const HeaderBack = styled.div`
-	padding: 4px;
-`
+const HeaderBack = styled.div``
 
 const HeadImage = styled.img`
 	width: 100%;
@@ -22,6 +19,7 @@ const Number = styled.span`
 `
 
 const Row = styled.div`
+	padding: 4px;
 	display: flex;
 `
 
@@ -41,7 +39,7 @@ const RatingLabel = ({ episode }: Props) => {
 			<HeadImage src={episode.work.url} alt="" />
 			<Row>
 				<div>
-					<Typography variant="display" gutterBottom>
+					<Typography variant="caption" gutterBottom>
 						{episode.work.title}
 					</Typography>
 					<Typography variant="title" gutterBottom>
