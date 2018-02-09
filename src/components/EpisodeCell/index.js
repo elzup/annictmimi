@@ -29,7 +29,7 @@ const EpisodeCell = (props: Props) => {
 			<ListItemText primary={title} secondary={props.episode.work.title} />
 			<Badge
 				color="primary"
-				badgeContent={props.episode.newCount || null}
+				badgeContent={props.episode.newCount}
 				style={{
 					visibility: props.episode.newCount === 0 ? 'hidden' : 'visible',
 				}}

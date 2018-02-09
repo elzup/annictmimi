@@ -10,43 +10,55 @@ import { action } from '@storybook/addon-actions'
 import EpisodeCell from '../src/components/EpisodeCell'
 import RecordItem from '../src/components/RecordItem'
 import RatingLabel from '../src/components/RatingLabel'
-import type { EpisodeComp, RecordComp } from '../src/types'
+
 import '../src/config/init'
+import styled from 'styled-components'
+import { episode1, episode2, record1, record2 } from './dummyData'
 
-import episodesData from './episodes.json'
-
-const episodes: EpisodeComp[] = episodesData.episodes
-const records: RecordComp[] = episodesData.records
-// const episode: EpisodeComp = episodeData
+const Screen = styled.div`
+	width: 360px;
+	border: solid gray 3px;
+`
 
 storiesOf('EpisodeCell', module).add('example 1', () => (
-	<div style={{ width: '360px' }}>
+	<Screen>
 		<List>
-			<EpisodeCell episode={episodes[0]} onClick={action('open episode')} />
-			<EpisodeCell episode={episodes[1]} onClick={action('open episode')} />
+			<EpisodeCell episode={episode1} onClick={action('open episode')} />
+			<EpisodeCell
+				episode={{ ...episode1, newCount: 0 }}
+				onClick={action('open episode')}
+			/>
+			<EpisodeCell episode={episode2} onClick={action('open episode')} />
 		</List>
-	</div>
+	</Screen>
 ))
 
 storiesOf('RecordCell', module).add('example 1', () => (
-	<div style={{ width: '360px' }}>
+	<Screen>
 		<List>
 			<RecordItem
-				record={records[0]}
+				record={record1}
 				onClick={action('open record')}
 				onClickTimestamp={action('clicked timestamp')}
 			/>
+			<hr />
 			<RecordItem
-				record={records[1]}
+				record={{ ...record1, ratingState: null }}
+				onClick={action('open record')}
+				onClickTimestamp={action('clicked timestamp')}
+			/>
+			<hr />
+			<RecordItem
+				record={record2}
 				onClick={action('open record')}
 				onClickTimestamp={action('clicked timestamp')}
 			/>
 		</List>
-	</div>
+	</Screen>
 ))
 
 storiesOf('RatingLabel', module).add('exists', () => (
-	<div style={{ width: '360px', padding: '50px' }}>
+	<Screen>
 		{['GREAT', 'GOOD', 'AVERAGE', 'BAD', null].map(rate => (
 			<div key={rate}>
 				<hr />
@@ -55,5 +67,5 @@ storiesOf('RatingLabel', module).add('exists', () => (
 				<hr />
 			</div>
 		))}
-	</div>
+	</Screen>
 ))
