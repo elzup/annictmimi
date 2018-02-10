@@ -5,6 +5,7 @@ import request from 'superagent'
 import _ from 'lodash'
 
 import config from '../config'
+import { getActivitiesQuery } from './queries'
 import type {
 	ID,
 	ActivityQueryResponse,
@@ -24,68 +25,14 @@ type GetActivityCallback = {
 	records: Record[],
 }
 
-const query = `{
-  viewer {
-    activities(first: 30) {
-      edges {
-        node {
-          ... on Record {
-            episode {
-              id
-              annictId
-              number
-              numberText
-              sortNumber
-              title
-              recordsCount
-              recordCommentsCount
-              work {
-                id
-                annictId
-                title
-                media
-                image {
-                  recommendedImageUrl
-                }
-                reviewsCount
-                seasonName
-                seasonYear
-              }
-              records(first: 30) {
-                edges {
-                  node {
-                    id
-                    annictId
-                    user {
-                      id
-                      annictId
-                      username
-                      name
-                      avatarUrl
-                    }
-                    comment
-                    likesCount
-                    createdAt
-                    ratingState
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-`
-
+// @HACKME
 export async function getActivity(
 	token: string,
 	username: string,
 ): Promise<GetActivityCallback> {
 	const res = await request
 		.post(config.annict.baseUrl + '/graphql')
-		.send({ query })
+		.send({ query: getActivitiesQuery() })
 		.set('Authorization', 'Bearer ' + token)
 	const body: ActivityQueryResponse = camelCaseRecursive(res.body, {
 		deep: true,
@@ -97,7 +44,7 @@ export async function getActivity(
 		users: [],
 		records: [],
 	}
-	body.data.viewer.activities.edges.forEach(edge => {
+	body.data.viewer.records.edges.forEach(edge => {
 		if (_.isEmpty(edge.node) || edge.node === null) {
 			return
 		}

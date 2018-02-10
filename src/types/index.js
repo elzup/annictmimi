@@ -83,23 +83,18 @@ export type WorkResponse = {
 	id: ID,
 	annictId: number,
 	title: string,
-	media: string,
 	image: {
 		recommendedImageUrl: string,
 	},
-	episodesCount: number,
-	reviewsCount: number,
 	seasonName: string,
-	seasonYear: string,
+	seasonYear: number,
 }
 
 export type Work = {
 	id: ID,
 	annictId: number,
 	title: string,
-	media: string,
 	url: string,
-	reviewsCount: number,
 	seasonName: string,
 	seasonNameText: string,
 }
@@ -180,8 +175,8 @@ export type EpisodeNode = {
 export type ActivityQueryResponse = {
 	data: {
 		viewer: {
-			activities: {
-				edges: Array<{ node: { episode: EpisodeNode } } | { node: null }>,
+			records: {
+				edges: Array<{ node: { episode: EpisodeNode } }>,
 			},
 		},
 	},
