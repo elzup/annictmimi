@@ -6,11 +6,9 @@ import type { ThunkAction } from '../../types'
 import * as actions from './actions'
 import { saveAnnictUser, removeUser } from '../AnnictUser/actions'
 import * as selectors from './selectors'
-import { getRehydrated } from '../App/selectors'
+
 import config from '../../config'
 import camelCaseRecursive from 'camelcase-keys-recursive'
-
-import { sleep } from '../../utils'
 
 export function doLogin(): ThunkAction {
 	return dispatch => {

@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { connect, type Connector } from 'react-redux'
 import Button from 'material-ui/Button'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { getRehydrated } from '../App/selectors'
 
 import queryString from 'query-string'

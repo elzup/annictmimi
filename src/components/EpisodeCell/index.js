@@ -32,7 +32,9 @@ const EpisodeCell = (props: Props) => {
 				style={{
 					visibility: props.episode.newCount === 0 ? 'hidden' : 'visible',
 				}}
-			/>
+			>
+				{' ' /* HACKME */}
+			</Badge>
 		</ListItem>
 	)
 }
