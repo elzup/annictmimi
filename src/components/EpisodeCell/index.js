@@ -22,19 +22,19 @@ const EpisodeCell = (props: Props) => {
 		<ListItem onClick={props.onClick}>
 			<Avatar
 				style={{ objectFit: 'contain', borderRadius: '4px' }}
-				alt="Remy Sharp"
 				src={props.episode.work.url}
 			/>
 
 			<ListItemText primary={title} secondary={props.episode.work.title} />
 			<Badge
 				color="primary"
-				badgeContent={props.episode.newRecordCommentsCount || null}
+				badgeContent={props.episode.newCount}
 				style={{
-					visibility:
-						props.episode.newRecordCommentsCount === 0 ? 'hidden' : 'visible',
+					visibility: props.episode.newCount === 0 ? 'hidden' : 'visible',
 				}}
-			/>
+			>
+				{' ' /* HACKME */}
+			</Badge>
 		</ListItem>
 	)
 }

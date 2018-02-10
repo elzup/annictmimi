@@ -5,6 +5,7 @@ import request from 'superagent'
 import _ from 'lodash'
 
 import config from '../config'
+import { getActivitiesQuery } from './queries'
 import type {
 	ID,
 	ActivityQueryResponse,
@@ -24,64 +25,14 @@ type GetActivityCallback = {
 	records: Record[],
 }
 
-const query = `{
-viewer {
-    activities(first: 30) {
-      edges {
-        node {
-          ... on Record {
-            episode {
-							id
-              number
-              numberText
-              sortNumber
-              title
-              recordsCount
-              recordCommentsCount
-              work {
-                id
-                title
-                media
-                image {
-                  recommendedImageUrl
-                }
-                reviewsCount
-                seasonName
-                seasonYear
-              }
-              records (first: 30) {
-                edges {
-                  node {
-                    id
-                    user {
-                      id
-                      username
-                      name
-                      avatarUrl
-                    }
-                    comment
-                    likesCount
-                    createdAt
-                    ratingState
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-`
-
+// @HACKME
 export async function getActivity(
 	token: string,
 	username: string,
 ): Promise<GetActivityCallback> {
 	const res = await request
 		.post(config.annict.baseUrl + '/graphql')
-		.send({ query })
+		.send({ query: getActivitiesQuery() })
 		.set('Authorization', 'Bearer ' + token)
 	const body: ActivityQueryResponse = camelCaseRecursive(res.body, {
 		deep: true,
@@ -93,7 +44,7 @@ export async function getActivity(
 		users: [],
 		records: [],
 	}
-	body.data.viewer.activities.edges.forEach(edge => {
+	body.data.viewer.records.edges.forEach(edge => {
 		if (_.isEmpty(edge.node) || edge.node === null) {
 			return
 		}
@@ -125,7 +76,7 @@ function normalizeEpisode(
 	const episode: Episode = {
 		..._.omit(episodeNode, ['records', 'work']),
 		records: result.records.map(r => r.id),
-		readedRecordCommentsCount: 0,
+		readedCount: episodeNode.recordCommentsCount,
 		work: work.id,
 	}
 	return { ...result, episode, work }
@@ -146,12 +97,8 @@ function normalizeRecord(
 
 function normalizeWork(workRes: WorkResponse): Work {
 	return {
-		id: workRes.id,
-		title: workRes.title,
-		media: workRes.media,
+		..._.omit(workRes, 'image', 'episodesCount', 'seasonNameYear'),
 		url: workRes.image.recommendedImageUrl,
-		reviewsCount: workRes.reviewsCount,
-		seasonName: workRes.seasonName,
 		seasonNameText: workRes.seasonYear + workRes.seasonName,
 	}
 }

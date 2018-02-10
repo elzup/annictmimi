@@ -9,6 +9,7 @@ test('provide the initial state', () => {
 const works: Work[] = [
 	{
 		id: 1,
+		annictId: 1,
 		title: 'HOGE',
 		media: 'http',
 		url: 'http',
@@ -18,6 +19,7 @@ const works: Work[] = [
 	},
 	{
 		id: 2,
+		annictId: 2,
 		title: 'FUGA',
 		media: 'http',
 		url: 'http',

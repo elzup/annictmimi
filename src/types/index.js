@@ -39,8 +39,11 @@ export type Auth = {
 
 export type ID = string | number
 
+export type RatingState = 'GREAT' | 'GOOD' | 'AVERAGE' | 'BAD' | null
+
 export type User = {
 	id: ID,
+	annictId: number,
 	username: string,
 	name: string,
 	avatarUrl: string,
@@ -48,9 +51,10 @@ export type User = {
 
 export type Record = {
 	id: ID,
+	annictId: number,
 	user: ID,
 	episode: ID,
-	ratingState: string | null,
+	ratingState: RatingState,
 	comment: string,
 	likesCount: number,
 	createdAt: string,
@@ -58,6 +62,7 @@ export type Record = {
 
 export type Episode = {
 	id: ID,
+	annictId: number,
 	work: ID,
 	number: string,
 	numberText: string,
@@ -66,7 +71,7 @@ export type Episode = {
 	records: ID[],
 	recordsCount: number,
 	recordCommentsCount: number,
-	readedRecordCommentsCount: number,
+	readedCount: number,
 }
 
 export type AnnictUser = {
@@ -76,29 +81,27 @@ export type AnnictUser = {
 
 export type WorkResponse = {
 	id: ID,
+	annictId: number,
 	title: string,
-	media: string,
 	image: {
 		recommendedImageUrl: string,
 	},
-	episodesCount: number,
-	reviewsCount: number,
 	seasonName: string,
-	seasonYear: string,
+	seasonYear: number,
 }
 
 export type Work = {
 	id: ID,
+	annictId: number,
 	title: string,
-	media: string,
 	url: string,
-	reviewsCount: number,
 	seasonName: string,
 	seasonNameText: string,
 }
 
 export type Activity = {
 	id: ID,
+	annictId: number,
 	user: User,
 	action:
 		| 'create_record'
@@ -120,23 +123,25 @@ export type ActivitiesResponse = {
 
 export type EpisodeComp = {
 	id: ID,
+	annictId: number,
 	work: Work,
-	number: string,
+	number: string | number,
 	numberText: string,
 	sortNumber: number,
 	title: string,
 	records: ID[],
 	recordsCount: number,
 	recordCommentsCount: number,
-	readedRecordCommentsCount: number,
-	newRecordCommentsCount: number,
+	readedCount: number,
+	newCount: number,
 }
 
 export type RecordComp = {
 	id: ID,
+	annictId: number,
 	user: User,
-	episode: EpisodeComp,
-	ratingState: string | null,
+	episode: ID,
+	ratingState: RatingState,
 	comment: string,
 	likesCount: number,
 	createdAt: string,
@@ -144,8 +149,9 @@ export type RecordComp = {
 
 export type RecordResponse = {
 	id: ID,
+	annictId: number,
 	user: User,
-	ratingState: string | null,
+	ratingState: RatingState,
 	comment: string,
 	likesCount: number,
 	createdAt: string,
@@ -153,6 +159,7 @@ export type RecordResponse = {
 
 export type EpisodeNode = {
 	id: ID,
+	annictId: number,
 	number: number,
 	numberText: string,
 	sortNumber: number,
@@ -168,8 +175,8 @@ export type EpisodeNode = {
 export type ActivityQueryResponse = {
 	data: {
 		viewer: {
-			activities: {
-				edges: Array<{ node: { episode: EpisodeNode } } | { node: null }>,
+			records: {
+				edges: Array<{ node: { episode: EpisodeNode } }>,
 			},
 		},
 	},

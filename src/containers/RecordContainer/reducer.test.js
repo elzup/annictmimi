@@ -9,18 +9,20 @@ test('provide the initial state', () => {
 const records = [
 	{
 		id: 2,
+		annictId: 2,
 		user: 2,
 		episode: 4,
-		ratingState: 'good',
+		ratingState: 'GOOD',
 		comment: 'hoge',
 		likesCount: 20,
 		createdAt: 'day',
 	},
 	{
 		id: 3,
+		annictId: 3,
 		user: 3,
 		episode: 5,
-		ratingState: 'good',
+		ratingState: 'GOOD',
 		comment: 'hoge',
 		likesCount: 20,
 		createdAt: 'day',

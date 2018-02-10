@@ -9,12 +9,14 @@ test('provide the initial state', () => {
 const users = [
 	{
 		id: 100,
+		annictId: 100,
 		username: 'hyaku',
 		name: '100',
 		avatarUrl: 'http',
 	},
 	{
 		id: 102,
+		annictId: 102,
 		username: 'hyaku-ni',
 		name: '102',
 		avatarUrl: 'http',

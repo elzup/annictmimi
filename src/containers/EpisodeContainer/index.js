@@ -7,8 +7,11 @@ import KeyboardArrowLeft from 'material-ui-icons/KeyboardArrowLeft'
 
 import type { State, ID, RecordComp, EpisodeComp } from '../../types'
 import RecordItem from '../../components/RecordItem'
+import EpisodeHeader from '../../components/EpisodeHeader'
 import NavBarContainer from '../NavBarContainer'
 import * as selectors from './selectors'
+
+import { annict } from '../../utils'
 
 type OProps = {
 	match: {
@@ -33,17 +36,33 @@ class Container extends React.Component<Props> {
 		return (
 			<div>
 				<NavBarContainer
-					title={'コメント一覧'}
+					title={'Commnets'}
 					leftButton={
-						<Link to={'/'}>
-							<IconButton color="inherit" aria-label="Menu">
+						<Link to={'/'} style={{ color: 'white' }}>
+							<IconButton
+								style={{ height: '38px' }}
+								color="inherit"
+								aria-label="Menu"
+							>
 								<KeyboardArrowLeft />
 							</IconButton>
 						</Link>
 					}
 				/>
+				<EpisodeHeader episode={props.episode} />
 				{props.records.map(record => (
-					<RecordItem key={record.id} record={record} onClick={() => {}} />
+					<RecordItem
+						key={record.id}
+						record={record}
+						onClick={() => {}}
+						onClickTimestamp={() => {
+							const url = annict.recordUrl(
+								record.user.username,
+								record.annictId,
+							)
+							window.open(url)
+						}}
+					/>
 				))}
 			</div>
 		)

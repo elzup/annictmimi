@@ -10,13 +10,16 @@ export default function(state: State = initialState, action: Action): State {
 	switch (action.type) {
 		case Actions.RECEIVE_EPISODES:
 			return action.episodes.reduce((p, c) => {
-				const readedRecordCommentsCount =
-					c.id in state ? state[c.id].readedRecordCommentsCount : 0
+				let { readedCount } = c
+				if (c.id in state) {
+					readedCount =
+						state[c.id].readedCount || state[c.id].recordCommentsCount
+				}
 				return {
 					...p,
 					[c.id]: {
 						...c,
-						readedRecordCommentsCount,
+						readedCount,
 					},
 				}
 			}, state)
@@ -30,8 +33,7 @@ export default function(state: State = initialState, action: Action): State {
 				...state,
 				[action.episodeId]: {
 					...state[action.episodeId],
-					readedRecordCommentsCount:
-						state[action.episodeId].recordCommentsCount,
+					readedCount: state[action.episodeId].recordCommentsCount,
 				},
 			}
 
