@@ -28,14 +28,6 @@ export function getEpisodeRecords(state: State, episodeId: ID) {
 	return getRecordsComp(state, episode.records)
 }
 
-export function getEpisodeRecordsHasComment(state: State, episodeId: ID) {
-	const episodes = getEpisodeRecords(state, episodeId)
-	if (episodes === null) {
-		return null
-	}
-	return episodes.filter(e => !_.isEmpty(e.comment))
-}
-
 function makeEpisodeComp(episode: Episode, work: Work): EpisodeComp {
 	return {
 		..._.omit(episode, 'work'),
