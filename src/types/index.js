@@ -81,6 +81,7 @@ export type RecordWithTime = {
 
 export type EpisodePage = {
 	records: RecordWithTime[],
+	page: number,
 }
 
 export type AnnictUser = {
