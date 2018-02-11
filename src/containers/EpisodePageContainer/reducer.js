@@ -33,8 +33,8 @@ export default function(state: State = initialState, action: Action): State {
 				(p, newRecords: RecordWithTime[], episodeId) => {
 					const preRecords: RecordWithTime[] =
 						episodeId in state ? state[episodeId].records : []
-					const records: RecordWithTime[] = _.orderBy(
-						preRecords.concat(newRecords),
+					const records = _.orderBy(
+						_.uniqBy(preRecords.concat(newRecords), 'id'),
 						['createdAt'],
 						['desc'],
 					)

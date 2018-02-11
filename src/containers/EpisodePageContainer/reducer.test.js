@@ -37,9 +37,19 @@ const records = [
 		likesCount: 20,
 		createdAt: '2018-02-05T22:22:22Z',
 	},
+	{
+		id: 4,
+		annictId: 3,
+		user: 3,
+		episode: 5,
+		ratingState: 'GOOD',
+		comment: 'hoge',
+		likesCount: 20,
+		createdAt: '2018-02-05T22:22:22Z',
+	},
 ]
 
-test('handle RECEIVE_RECORDS new order', () => {
+test('handle RECEIVE_RECORDS', () => {
 	expect(reducer(initialState, actions.receiveRecords(records))).toEqual({
 		'4': {
 			records: [
