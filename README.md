@@ -1,3 +1,4 @@
-# TODO: My App [![Build Status](https://travis-ci.org/elzup/react-app-boilerplate.svg?branch=master)](https://travis-ci.org/elzup/react-app-boilerplate) [![Coverage Status](https://coveralls.io/repos/github/elzup/react-app-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/elzup/react-app-boilerplate?branch=master)
+# Annict Mimi [![Build Status](https://travis-ci.org/elzup/annict-mimit.svg?branch=master)](https://travis-ci.org/elzup/annict-mimi) [![Coverage Status](https://coveralls.io/repos/github/elzup/annict-mimi/badge.svg?branch=master)](https://coveralls.io/github/elzup/annict-mimi?branch=master)
 
-> TODO: My Web app Boilerplate
+> Annict comment reader client on PWA
+![https://github.com/elzup/annict-mimi/raw/master/screenshot.gif](https://github.com/elzup/annict-mimi/raw/master/screenshot.gif)
