@@ -11,6 +11,7 @@ import EpisodeHeader from '../src/components/EpisodeHeader'
 import EpisodeCell from '../src/components/EpisodeCell'
 import RecordItem from '../src/components/RecordItem'
 import RatingLabel from '../src/components/RatingLabel'
+import TabBar from '../src/components/TabBar'
 
 import '../src/config/init'
 import styled from 'styled-components'
@@ -21,6 +22,12 @@ const Screen = styled.div`
 	min-height: 732px;
 	border: solid gray 3px;
 `
+
+storiesOf('TabBar', module).add('normal', () => (
+	<Screen>
+		<TabBar value={0} handleChange={action('tab change')} />
+	</Screen>
+))
 
 storiesOf('EpisodeHeader', module)
 	.add('normal', () => (

@@ -1,24 +1,17 @@
 // @flow
 import * as React from 'react'
 import { connect, type Connector } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom'
-import IconButton from 'material-ui/IconButton'
-import KeyboardArrowLeft from 'material-ui-icons/KeyboardArrowLeft'
+import { withRouter } from 'react-router-dom'
+import List from 'material-ui/List'
 
 import type { State, ID, RecordComp, EpisodeComp } from '../../types'
 import RecordItem from '../../components/RecordItem'
-import EpisodeHeader from '../../components/EpisodeHeader'
-import NavBarContainer from '../NavBarContainer'
 import * as selectors from './selectors'
 
 import { annict } from '../../utils'
 
 type OProps = {
-	match: {
-		params: {
-			episodeId: ID,
-		},
-	},
+	episodeId: ID,
 }
 
 type Props = {
@@ -34,22 +27,7 @@ class Container extends React.Component<Props> {
 			return <div>invalida id</div>
 		}
 		return (
-			<div>
-				<NavBarContainer
-					title={'Commnets'}
-					leftButton={
-						<Link to={'/'} style={{ color: 'white' }}>
-							<IconButton
-								style={{ height: '38px' }}
-								color="inherit"
-								aria-label="Menu"
-							>
-								<KeyboardArrowLeft />
-							</IconButton>
-						</Link>
-					}
-				/>
-				<EpisodeHeader episode={props.episode} />
+			<List>
 				{props.records.map(record => (
 					<RecordItem
 						key={record.id}
@@ -64,16 +42,14 @@ class Container extends React.Component<Props> {
 						}}
 					/>
 				))}
-			</div>
+			</List>
 		)
 	}
 }
 
 const ms = (state: State, op: OProps) => {
-	const { match: { params: { episodeId } } } = op
 	return {
-		records: selectors.getEpisodeRecordsHasComment(state, episodeId),
-		episode: selectors.getEpisodeComp(state, episodeId),
+		records: selectors.getEpisodeRecords(state, op.episodeId),
 	}
 }
 

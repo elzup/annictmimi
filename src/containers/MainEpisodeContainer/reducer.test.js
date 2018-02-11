@@ -47,3 +47,9 @@ test("handle RECEIVE_MAIN_EPISODE don't duplicate", () => {
 		reducer([2], actions.receiveMainEpisode([...episodes, ...episodes])),
 	).toEqual([2, 3])
 })
+
+test('handle RECEIVE_MAIN_EPISODE replace old', () => {
+	expect(
+		reducer([4, 5], actions.receiveMainEpisode([...episodes, ...episodes])),
+	).toEqual([2, 3])
+})

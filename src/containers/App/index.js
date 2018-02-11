@@ -5,7 +5,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import AuthContainer from '../AuthContainer'
 import Auth from '../AuthContainer/Auth'
 import HomeContainer from '../HomeContainer'
-import EpisodeContainer from '../EpisodeContainer'
+import EpisodePageContainer from '../EpisodePageContainer'
 
 const RouteApp = () => (
 	<Router>
@@ -14,7 +14,7 @@ const RouteApp = () => (
 			<Auth>
 				<Switch>
 					<Route exact path="/" component={HomeContainer} />
-					<Route path="/ep/:episodeId" component={EpisodeContainer} />
+					<Route path="/ep/:episodeId" component={EpisodePageContainer} />
 				</Switch>
 			</Auth>
 		</Switch>
