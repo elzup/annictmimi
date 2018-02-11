@@ -4,6 +4,7 @@ import AnnictUser from './containers/AnnictUser/reducer'
 import AuthContainer from './containers/AuthContainer/reducer'
 import EpisodeById from './containers/EpisodeById/reducer'
 import EpisodeContainer from './containers/EpisodeContainer/reducer'
+import EpisodePageContainer from './containers/EpisodePageContainer/reducer'
 import MainEpisodeContainer from './containers/MainEpisodeContainer/reducer'
 import RecordById from './containers/RecordById/reducer'
 import RecordContainer from './containers/RecordContainer/reducer'
@@ -17,6 +18,7 @@ export default combineReducers({
 	AuthContainer,
 	EpisodeById,
 	EpisodeContainer,
+	EpisodePageContainer,
 	MainEpisodeContainer,
 	RecordById,
 	RecordContainer,

@@ -74,6 +74,15 @@ export type Episode = {
 	readedCount: number,
 }
 
+export type RecordWithTime = {
+	id: number,
+	createdAt: string,
+}
+
+export type EpisodePage = {
+	records: RecordWithTime[],
+}
+
 export type AnnictUser = {
 	username: string,
 	name: string,

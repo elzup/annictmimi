@@ -3,6 +3,7 @@ import type { State as AnnictUser } from '../containers/AnnictUser/reducer'
 import type { State as AuthContainer } from '../containers/AuthContainer/reducer'
 import type { State as EpisodeById } from '../containers/EpisodeById/reducer'
 import type { State as EpisodeContainer } from '../containers/EpisodeContainer/reducer'
+import type { State as EpisodePageContainer } from '../containers/EpisodePageContainer/reducer'
 import type { State as MainEpisodeContainer } from '../containers/MainEpisodeContainer/reducer'
 import type { State as RecordById } from '../containers/RecordById/reducer'
 import type { State as RecordContainer } from '../containers/RecordContainer/reducer'
@@ -16,6 +17,7 @@ export type State = {
 	AuthContainer: AuthContainer,
 	EpisodeById: EpisodeById,
 	EpisodeContainer: EpisodeContainer,
+	EpisodePageContainer: EpisodePageContainer,
 	MainEpisodeContainer: MainEpisodeContainer,
 	RecordById: RecordById,
 	RecordContainer: RecordContainer,
