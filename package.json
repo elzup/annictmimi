@@ -10,7 +10,8 @@
 		"test": "node scripts/test.js --env=jsdom",
 		"deploy": "npm run build && gh-pages -d build",
 		"coveralls":
-			"cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+			"node scripts/test.js --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+
 		"flow": "flow",
 		"gen:env":
 			"cp templates/temp.env .env.development.local && cp templates/temp.env .env.production.local",
