@@ -7,6 +7,7 @@ import type { State as EpisodePageContainer } from '../containers/EpisodePageCon
 import type { State as MainEpisodeContainer } from '../containers/MainEpisodeContainer/reducer'
 import type { State as RecordById } from '../containers/RecordById/reducer'
 import type { State as RecordContainer } from '../containers/RecordContainer/reducer'
+import type { State as SettingContainer } from '../containers/SettingContainer/reducer'
 import type { State as UserById } from '../containers/UserById/reducer'
 import type { State as UserContainer } from '../containers/UserContainer/reducer'
 import type { State as WorkById } from '../containers/WorkById/reducer'
@@ -21,6 +22,7 @@ export type State = {
 	MainEpisodeContainer: MainEpisodeContainer,
 	RecordById: RecordById,
 	RecordContainer: RecordContainer,
+	SettingContainer: SettingContainer,
 	UserById: UserById,
 	UserContainer: UserContainer,
 	WorkById: WorkById,

@@ -31,6 +31,11 @@ export function requestToken({ code }: { code: string }): ThunkAction {
 				code: code,
 			})
 			.end(async (err, res) => {
+				if (err) {
+					window.location.href = config.appPath
+					await dispatch(actions.authEnd())
+					return
+				}
 				await dispatch(actions.saveAuth(camelCaseRecursive(res.body)))
 				await dispatch(fetchUser())
 				await dispatch(actions.authEnd())

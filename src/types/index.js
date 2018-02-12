@@ -75,7 +75,7 @@ export type Episode = {
 }
 
 export type RecordWithTime = {
-	id: number,
+	id: ID,
 	createdAt: string,
 }
 
@@ -87,6 +87,10 @@ export type EpisodePage = {
 export type AnnictUser = {
 	username: string,
 	name: string,
+}
+
+export type AppConfig = {
+	filterBad: boolean,
 }
 
 export type WorkResponse = {

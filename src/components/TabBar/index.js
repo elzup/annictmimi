@@ -1,23 +1,36 @@
 // @flow
 import * as React from 'react'
-import Tabs, { Tab } from 'material-ui/Tabs'
+import BottomNavigation, {
+	BottomNavigationAction,
+} from 'material-ui/BottomNavigation'
+import HomeIcon from 'material-ui-icons/Home'
+import Settings from 'material-ui-icons/Settings'
+import config from '../../config'
 
-type Props = {
-	value: number,
-	handleChange: Function,
+export type Props = {
+	onPush: any,
+	value: any,
 }
 
 const TabBar = (props: Props) => (
-	<Tabs
-		fullWidth
-		centered
+	<BottomNavigation
+		style={{ height: config.tabBarHeight }}
 		value={props.value}
-		indicatorColor="primary"
-		onChange={props.handleChange}
+		onChange={(event, value) => {
+			props.onPush(value)
+		}}
 	>
-		<Tab label="Active" />
-		<Tab label="Config" disabled />
-	</Tabs>
+		<BottomNavigationAction
+			style={{ height: config.tabBarHeight, paddingTop: '8px' }}
+			value="/"
+			icon={<HomeIcon />}
+		/>
+		<BottomNavigationAction
+			style={{ height: config.tabBarHeight, paddingTop: '8px' }}
+			value="/setting"
+			icon={<Settings />}
+		/>
+	</BottomNavigation>
 )
 
 export default TabBar
