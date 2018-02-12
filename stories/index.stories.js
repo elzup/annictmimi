@@ -25,7 +25,7 @@ const Screen = styled.div`
 
 storiesOf('TabBar', module).add('normal', () => (
 	<Screen>
-		<TabBar value={0} handleChange={action('tab change')} />
+		<TabBar value={'/'} onPush={action('tab change')} />
 	</Screen>
 ))
 

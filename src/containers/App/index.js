@@ -1,16 +1,12 @@
 // @flow
 import React from 'react'
-import {
-	HashRouter as Router,
-	Route,
-	Switch,
-	withRouter,
-} from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 
 import AuthContainer from '../AuthContainer'
 import Auth from '../AuthContainer/Auth'
 import HomeContainer from '../HomeContainer'
+import SettingContainer from '../SettingContainer'
 import TabBar from '../TabBarContainer'
 import EpisodePageContainer from '../EpisodePageContainer'
 import config from '../../config'
@@ -30,6 +26,7 @@ const RouteApp = () => (
 					<Main window={window}>
 						<Switch>
 							<Route exact path="/" component={HomeContainer} />
+							<Route exact path="/setting" component={SettingContainer} />
 							<Route path="/ep/:episodeId" component={EpisodePageContainer} />
 						</Switch>
 					</Main>

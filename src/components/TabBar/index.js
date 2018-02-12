@@ -9,7 +9,7 @@ import config from '../../config'
 
 export type Props = {
 	onPush: any,
-	path: any,
+	value: any,
 }
 
 class TabBar extends React.Component<Props> {
@@ -29,7 +29,7 @@ class TabBar extends React.Component<Props> {
 				/>
 				<BottomNavigationAction
 					style={{ height: config.tabBarHeight, paddingTop: '8px' }}
-					value="/config"
+					value="/setting"
 					icon={<Settings />}
 				/>
 			</BottomNavigation>

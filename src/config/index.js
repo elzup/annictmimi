@@ -24,6 +24,7 @@ type Config = {
 	+appName: string,
 	+appPath: string,
 	+tabBarHeight: number,
+	+authorUrl: string,
 	+annict: {
 		+id: string,
 		+secret: string,
@@ -42,6 +43,7 @@ const configDevelopment = {
 	appName: 'Annict Mimi (Dev)',
 	tabBarHeight: 40,
 	appPath: '/#/',
+	authorUrl: 'https://twitter.com/_elzup_',
 	admin: {
 		name: 'admin',
 		countMax: 100,
@@ -51,6 +53,7 @@ const configProduction = {
 	appName: 'Annict Mimi',
 	tabBarHeight: 40,
 	appPath: '/annict-mimi/#/',
+	authorUrl: 'https://twitter.com/_elzup_',
 	admin: {
 		name: 'proadmin',
 		countMax: 100,

@@ -7,7 +7,9 @@ import { withRouter } from 'react-router-dom'
 // import * as selectors from './selectors'
 
 type OProps = {
-	history: any,
+	history: {
+		push: Function,
+	},
 	location: {
 		pathname: string,
 	},
@@ -30,6 +32,6 @@ const ms = (state: State, op: OProps) => {
 	}
 }
 
-const conn: Connector<OProps, Props> = connect(ms, {})
+const conn: Connector<any, Props> = connect(ms, {})
 
 export default withRouter(conn(TabBar))

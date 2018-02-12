@@ -89,6 +89,10 @@ export type AnnictUser = {
 	name: string,
 }
 
+export type AppConfig = {
+	filterBad: boolean,
+}
+
 export type WorkResponse = {
 	id: ID,
 	annictId: number,
