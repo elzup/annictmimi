@@ -15,8 +15,8 @@ import config from '../../config'
 
 export type Props = {
 	doLogout: Function,
-	config: AppConfig,
-	handleToggle: Function,
+	appConfig: AppConfig,
+	toggleFilterBad: Function,
 }
 
 const Setting = (props: Props) => (
@@ -29,8 +29,8 @@ const Setting = (props: Props) => (
 				<ListItemText primary="BAD 評価のコメントは表示しない" />
 				<ListItemSecondaryAction>
 					<Switch
-						onChange={() => props.handleToggle('filterBad')}
-						checked={props.config.filterBad}
+						onChange={props.toggleFilterBad}
+						checked={props.appConfig.filterBad}
 					/>
 				</ListItemSecondaryAction>
 			</ListItem>

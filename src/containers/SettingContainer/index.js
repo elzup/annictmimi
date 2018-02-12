@@ -4,20 +4,17 @@ import Setting, { type Props } from '../../components/Setting'
 
 import type { State } from '../../types'
 import { doLogout } from '../AuthContainer/logic'
-// import * as selectors from './selectors'
+import * as actions from './actions'
+import * as selectors from './selectors'
 
 type OProps = {}
 const ms = (state: State) => ({
-	config: { filterBad: true },
+	appConfig: selectors.getAppConfig(state),
 })
-
-function handleToggle(word) {
-	console.log(word)
-}
 
 const conn: Connector<OProps, Props> = connect(ms, {
 	doLogout,
-	handleToggle,
+	toggleFilterBad: actions.toggleFilterBad,
 })
 
 export default conn(Setting)
