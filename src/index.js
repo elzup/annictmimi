@@ -29,17 +29,6 @@ const theme = createMuiTheme({
 
 const rootEl = document.getElementById('root')
 
-// @HACKME
-document.addEventListener(
-	'touchmove',
-	function(e) {
-		if (window.innerHeight >= document.body.scrollHeight) {
-			e.preventDefault()
-		}
-	},
-	false,
-)
-
 if (rootEl !== null) {
 	ReactDOM.render(
 		<Provider store={store}>
