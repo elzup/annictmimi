@@ -2,8 +2,7 @@
 import * as React from 'react'
 import { connect, type Connector } from 'react-redux'
 import Button from 'material-ui/Button'
-import { withRouter, Link } from 'react-router-dom'
-import { getRehydrated } from '../App/selectors'
+import { withRouter } from 'react-router-dom'
 
 import queryString from 'query-string'
 import config from '../../config'
@@ -16,7 +15,6 @@ import * as selectors from './selectors'
 type OProps = {}
 type Props = {
 	isLogin: boolean,
-	rehydrated: boolean,
 	doLogin: Function,
 	doLogout: Function,
 	authEnd: Function,
@@ -31,9 +29,6 @@ class AuthContainer extends React.Component<Props> {
 	render() {
 		const { props } = this
 		const qs = queryString.parse(window.location.search)
-		if (!props.rehydrated) {
-			return <span>Auth Checking</span>
-		}
 		if ('code' in qs) {
 			if (props.authLoading) {
 				return <span>認証中...</span>
@@ -61,7 +56,6 @@ class AuthContainer extends React.Component<Props> {
 
 const ms = (state: State, op: OProps) => {
 	return {
-		rehydrated: getRehydrated(state),
 		isLogin: selectors.isLogin(state),
 		authLoading: selectors.getAuthLoading(state),
 		user: selectors.getUser(state),
