@@ -8,6 +8,7 @@ import EpisodePageContainer from './containers/EpisodePageContainer/reducer'
 import MainEpisodeContainer from './containers/MainEpisodeContainer/reducer'
 import RecordById from './containers/RecordById/reducer'
 import RecordContainer from './containers/RecordContainer/reducer'
+import SettingContainer from './containers/SettingContainer/reducer'
 import UserById from './containers/UserById/reducer'
 import UserContainer from './containers/UserContainer/reducer'
 import WorkById from './containers/WorkById/reducer'
@@ -22,6 +23,7 @@ export default combineReducers({
 	MainEpisodeContainer,
 	RecordById,
 	RecordContainer,
+	SettingContainer,
 	UserById,
 	UserContainer,
 	WorkById,
