@@ -75,7 +75,7 @@ export type Episode = {
 }
 
 export type RecordWithTime = {
-	id: number,
+	id: ID,
 	createdAt: string,
 }
 

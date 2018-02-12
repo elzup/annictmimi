@@ -49,7 +49,7 @@ class Container extends React.Component<Props> {
 
 const ms = (state: State, op: OProps) => {
 	return {
-		records: selectors.getEpisodeRecords(state, op.episodeId),
+		records: selectors.getEpisodeRecordsWithFilter(state, op.episodeId),
 	}
 }
 
