@@ -1,11 +1,11 @@
 // @flow
 import * as React from 'react'
 import { connect, type Connector } from 'react-redux'
-import Button from 'material-ui/Button'
 import { withRouter } from 'react-router-dom'
 
 import queryString from 'query-string'
 import config from '../../config'
+import LoginScreen from '../../components/LoginScreen'
 
 import type { State } from '../../types'
 import * as actions from './actions'
@@ -38,19 +38,11 @@ class AuthContainer extends React.Component<Props> {
 				setTimeout(() => {
 					window.location.href = config.appPath
 				}, 5000)
-				return <span>Hello</span>
+				return <span>...</span>
 			}
 			props.requestToken({ code: qs.code })
 		}
-		return (
-			<div>
-				<p>Not Logined</p>
-				<Button color="primary" onClick={props.doLogin}>
-					Annict ログイン
-				</Button>
-			</div>
-		)
-		// window.location.href = config.appPath
+		return <LoginScreen handleLoginClick={props.doLogin} />
 	}
 }
 
