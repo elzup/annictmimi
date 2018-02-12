@@ -23,6 +23,7 @@ type Config = {
 	+isDev: boolean,
 	+appName: string,
 	+appPath: string,
+	+tabBarHeight: number,
 	+annict: {
 		+id: string,
 		+secret: string,
@@ -39,6 +40,7 @@ const isDev = NODE_ENV === 'development'
 
 const configDevelopment = {
 	appName: 'Annict Mimi (Dev)',
+	tabBarHeight: 40,
 	appPath: '/#/',
 	admin: {
 		name: 'admin',
@@ -47,6 +49,7 @@ const configDevelopment = {
 }
 const configProduction = {
 	appName: 'Annict Mimi',
+	tabBarHeight: 40,
 	appPath: '/annict-mimi/#/',
 	admin: {
 		name: 'proadmin',
