@@ -4,28 +4,19 @@ import * as React from 'react'
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import Typography from 'material-ui/Typography'
-import type { AnnictUser } from '../../types'
+import IconButton from 'material-ui/IconButton'
+import KeyboardArrowLeft from 'material-ui-icons/KeyboardArrowLeft'
 
 import config from '../../config'
 
-export type Props =
-	| {
-			isLogin: true,
-			profile: AnnictUser,
-			title?: string,
-			leftButton?: React.Node,
-			doLogout: Function,
-		}
-	| {
-			isLogin: false,
-			title?: string,
-			leftButton?: React.Node,
-			doLogout: Function,
-		}
+export type Props = {
+	title?: string,
+	leftButtonAction?: ?Function,
+}
 
 const defaultProps = {
 	title: config.appName,
-	leftButton: null,
+	leftButtonAction: null,
 }
 
 const NavBar = (oprops: Props) => {
@@ -34,7 +25,17 @@ const NavBar = (oprops: Props) => {
 		<div>
 			<AppBar position="static">
 				<Toolbar style={{ minHeight: 0 }}>
-					{props.leftButton}
+					{props.leftButtonAction && (
+						<IconButton
+							style={{ height: '38px' }}
+							color="inherit"
+							aria-label="Menu"
+							onClick={props.leftButtonAction}
+						>
+							<KeyboardArrowLeft />
+						</IconButton>
+					)}
+
 					<Typography
 						style={{ fontSize: '14px' }}
 						variant="title"

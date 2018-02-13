@@ -4,19 +4,24 @@ import { connect, type Connector } from 'react-redux'
 import NavBar, { type Props } from '../../components/NavBar'
 import type { State } from '../../types'
 // import * as selectors from './selectors'
-import { isLogin, getUser } from '../AuthContainer/selectors'
-import { doLogout } from '../AuthContainer/logic'
 
+import { withRouter } from 'react-router-dom'
+
+// @HACKME
 type OProps = {
-	title?: string,
+	title: string,
+	history: {
+		goBack: Function,
+	},
 }
 
 const ms = (state: State, op: OProps) => ({
-	isLogin: isLogin(state),
-	profile: getUser(state),
-	...op,
+	leftButtonAction: () => {
+		op.history.goBack()
+	},
+	title: op.title,
 })
 
-const conn: Connector<OProps, Props> = connect(ms, { doLogout })
+const conn: Connector<any, Props> = connect(ms, {})
 
-export default conn(NavBar)
+export default withRouter(conn(NavBar))

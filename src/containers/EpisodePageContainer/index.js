@@ -1,9 +1,7 @@
 // @flow
 import * as React from 'react'
 import { connect, type Connector } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom'
-import IconButton from 'material-ui/IconButton'
-import KeyboardArrowLeft from 'material-ui-icons/KeyboardArrowLeft'
+import { withRouter } from 'react-router-dom'
 
 import type { State, ID, EpisodeComp } from '../../types'
 import EpisodeHeader from '../../components/EpisodeHeader'
@@ -32,20 +30,7 @@ class Container extends React.Component<Props> {
 		}
 		return (
 			<div>
-				<NavBarContainer
-					title={'Commnets'}
-					leftButton={
-						<Link to={'/'} style={{ color: 'white' }}>
-							<IconButton
-								style={{ height: '38px' }}
-								color="inherit"
-								aria-label="Menu"
-							>
-								<KeyboardArrowLeft />
-							</IconButton>
-						</Link>
-					}
-				/>
+				<NavBarContainer title={'Commnets'} />
 				<EpisodeHeader episode={props.episode} />
 				<EpisodeRecordsList episodeId={props.episode.id} />
 			</div>
