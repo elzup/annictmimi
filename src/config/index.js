@@ -42,7 +42,7 @@ const isDev = NODE_ENV === 'development'
 const configDevelopment = {
 	appName: 'Annict Mimi (Dev)',
 	tabBarHeight: 40,
-	appPath: '/#/',
+	appPath: '/',
 	authorUrl: 'https://twitter.com/_elzup_',
 	admin: {
 		name: 'admin',
@@ -52,7 +52,7 @@ const configDevelopment = {
 const configProduction = {
 	appName: 'Annict Mimi',
 	tabBarHeight: 40,
-	appPath: '/annict-mimi/#/',
+	appPath: '/',
 	authorUrl: 'https://twitter.com/_elzup_',
 	admin: {
 		name: 'proadmin',

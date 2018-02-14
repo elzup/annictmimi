@@ -11,13 +11,13 @@ import { withRouter } from 'react-router-dom'
 type OProps = {
 	title: string,
 	history: {
-		goBack: Function,
+		push: Function,
 	},
 }
 
 const ms = (state: State, op: OProps) => ({
 	leftButtonAction: () => {
-		op.history.goBack()
+		op.history.push('/')
 	},
 	title: op.title,
 })

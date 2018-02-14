@@ -4,7 +4,6 @@ import { connect, type Connector } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 import queryString from 'query-string'
-import config from '../../config'
 import LoginScreen from '../../components/LoginScreen'
 
 import type { State } from '../../types'
@@ -27,6 +26,7 @@ class AuthContainer extends React.Component<Props> {
 		this.props.authEnd()
 	}
 	render() {
+		debugger
 		const { props } = this
 		const qs = queryString.parse(window.location.search)
 		if ('code' in qs) {
@@ -35,9 +35,7 @@ class AuthContainer extends React.Component<Props> {
 			}
 			if (props.isLogin) {
 				// @HACKME: wait redux-persist save...
-				setTimeout(() => {
-					window.location.href = config.appPath
-				}, 5000)
+				props.history.push({ pathname: '/', search: '' })
 				return <span>...</span>
 			}
 			props.requestToken({ code: qs.code })
