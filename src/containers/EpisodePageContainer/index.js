@@ -24,15 +24,17 @@ type Props = {
 class Container extends React.Component<Props> {
 	render() {
 		const { props } = this
-		if (props.episode === null) {
-			// TODO:
-			return <div>invalida id</div>
-		}
 		return (
 			<div>
 				<NavBarContainer title={'Commnets'} />
-				<EpisodeHeader episode={props.episode} />
-				<EpisodeRecordsList episodeId={props.episode.id} />
+				{props.episode ? (
+					<div>
+						<EpisodeHeader episode={props.episode} />
+						<EpisodeRecordsList episodeId={props.episode.id} />
+					</div>
+				) : (
+					<span>Invalid Id</span>
+				)}
 			</div>
 		)
 	}

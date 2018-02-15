@@ -15,8 +15,11 @@ if (
 	!REACT_APP_ANNICT_REDIRECT ||
 	!NODE_ENV
 ) {
-	console.error(process.env)
-	throw Error('Configuration not completed. must setup envioraments.')
+	if (process.env.STORYBOOK_GIT_BRANCH) {
+	} else {
+		console.error(process.env)
+		throw Error('Configuration not completed. must setup envioraments.')
+	}
 }
 
 type Config = {
