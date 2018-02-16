@@ -23,6 +23,7 @@ const EpisodeRecordsList = (props: Props) => {
 					key={record.id}
 					record={record}
 					onClick={() => {}}
+					onClickFav={() => {}}
 					onClickTimestamp={() => {
 						const url = annict.recordUrl(record.user.username, record.annictId)
 						window.open(url)
