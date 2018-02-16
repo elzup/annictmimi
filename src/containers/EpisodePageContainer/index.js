@@ -8,6 +8,7 @@ import EpisodeHeader from '../../components/EpisodeHeader'
 import NavBarContainer from '../NavBarContainer'
 import { getEpisodeComp } from '../EpisodeContainer/selectors'
 import EpisodeRecordsList from './EpisodeRecordsList'
+import ErrorUsa from '../../components/ErrorUsa'
 
 type OProps = {
 	match: {
@@ -33,7 +34,7 @@ class Container extends React.Component<Props> {
 						<EpisodeRecordsList episodeId={props.episode.id} />
 					</div>
 				) : (
-					<span>Invalid Id</span>
+					<ErrorUsa message={'データが見つかりませんでした。'} />
 				)}
 			</div>
 		)
