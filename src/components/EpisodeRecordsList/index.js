@@ -6,10 +6,10 @@ import type { RecordComp, EpisodeComp } from '../../types'
 import RecordItem from '../RecordItem'
 import ErrorUsa from '../ErrorUsa'
 
-import { annict } from '../../utils'
 type Props = {
 	records: RecordComp[],
 	episode: EpisodeComp,
+	onClickTimestamp: Function,
 }
 
 const EpisodeRecordsList = (props: Props) => {
@@ -25,8 +25,10 @@ const EpisodeRecordsList = (props: Props) => {
 					onClick={() => {}}
 					onClickFav={() => {}}
 					onClickTimestamp={() => {
-						const url = annict.recordUrl(record.user.username, record.annictId)
-						window.open(url)
+						props.onClickTimestamp({
+							username: record.user.username,
+							recordAnnictId: record.annictId,
+						})
 					}}
 				/>
 			))}
