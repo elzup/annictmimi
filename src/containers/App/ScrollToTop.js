@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import { withRouter } from 'react-router-dom'
 
@@ -10,7 +9,15 @@ class ScrollToTop extends React.Component<*> {
 	}
 
 	render() {
-		return <div ref={node => (this.node = node)}>{this.props.children}</div>
+		return (
+			<div
+				ref={node => {
+					this.node = node
+				}}
+			>
+				{this.props.children}
+			</div>
+		)
 	}
 }
 

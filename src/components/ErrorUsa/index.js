@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react'
-// import usa from '../assets/usa.svg'
 import styled from 'styled-components'
+
+import usa from '../assets/usa.svg'
 
 type Props = {
 	message: string,
@@ -13,6 +14,7 @@ const Logo = styled.img`
 
 export default (props: Props) => (
 	<div>
+		<Logo src={usa} alt="usa" />
 		<p>{props.message}</p>
 	</div>
 )
