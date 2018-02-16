@@ -3,9 +3,11 @@ import * as React from 'react'
 
 import { ListItem } from 'material-ui/List'
 import Typography from 'material-ui/Typography'
+import Img from 'react-image'
 import Button from 'material-ui/Button'
-import Avatar from 'material-ui/Avatar'
 import moment from 'moment'
+
+import usa from '../assets/usa-no.png'
 
 import styled from 'styled-components'
 
@@ -29,6 +31,13 @@ const RowBetween = styled.div`
 	justify-content: space-between;
 `
 
+const iconStyle = {
+	width: '20px',
+	height: '20px',
+	borderRadius: '50%',
+	background: 'gray',
+}
+
 type Props = {
 	record: RecordComp,
 	onClick: Function,
@@ -46,7 +55,12 @@ const RecordItem = (props: Props) => {
 			<div style={{ width: '100%' }}>
 				<RowBetween>
 					<Row>
-						<Avatar style={{ height: 20, width: 20 }} src={user.avatarUrl} />
+						<Img
+							style={iconStyle}
+							src={user.avatarUrl}
+							loader={<div style={iconStyle}> </div>}
+							unloader={<img src={usa} alt={'Usa'} style={iconStyle} />}
+						/>
 						<Name>{user.name}</Name>
 					</Row>
 					<Button

@@ -32,32 +32,14 @@ type Config = {
 		+baseUrl: string,
 		+authUrl: string,
 	},
-	+admin: {
-		+name: string,
-		+countMax: number,
-	},
 }
 const isDev = NODE_ENV === 'development'
 
 const configDevelopment = {
 	appName: 'Annict Mimi (Dev)',
-	tabBarHeight: 40,
-	appPath: '/',
-	authorUrl: 'https://twitter.com/_elzup_',
-	admin: {
-		name: 'admin',
-		countMax: 100,
-	},
 }
 const configProduction = {
 	appName: 'Annict Mimi',
-	tabBarHeight: 40,
-	appPath: '/',
-	authorUrl: 'https://twitter.com/_elzup_',
-	admin: {
-		name: 'proadmin',
-		countMax: 100,
-	},
 }
 
 const baseUrl = 'https://api.annict.com'
@@ -72,14 +54,16 @@ const authUrl =
 
 const config: Config = {
 	isDev,
+	appPath: '/',
+	authorUrl: 'https://twitter.com/_elzup_',
 	annict: {
-		baseUrl,
-		authUrl,
 		id: REACT_APP_ANNICT_CLIENT_ID,
 		secret: REACT_APP_ANNICT_CLIENT_SECRET,
 		redirect: REACT_APP_ANNICT_REDIRECT,
+		baseUrl,
+		authUrl,
 	},
-	admin: { name: '', countMax: 0 },
+	tabBarHeight: 40,
 	...(isDev ? configDevelopment : configProduction),
 }
 
