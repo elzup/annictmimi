@@ -26,7 +26,6 @@ class AuthContainer extends React.Component<Props> {
 		this.props.authEnd()
 	}
 	render() {
-		debugger
 		const { props } = this
 		const qs = queryString.parse(window.location.search)
 		if ('code' in qs) {
