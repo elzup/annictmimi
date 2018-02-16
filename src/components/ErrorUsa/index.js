@@ -13,7 +13,7 @@ const Box = styled.div`
 `
 
 const Logo = styled.img`
-	margin: 100px 0;
+	margin: 50px 0;
 	height: 80px;
 `
 
