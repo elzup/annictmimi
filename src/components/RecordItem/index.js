@@ -3,6 +3,8 @@ import * as React from 'react'
 
 import { ListItem } from 'material-ui/List'
 import Typography from 'material-ui/Typography'
+import FavoriteIcon from 'material-ui-icons/Favorite'
+import NotFavoriteIcon from 'material-ui-icons/FavoriteBorder'
 import Img from 'react-image'
 import Button from 'material-ui/Button'
 import moment from 'moment'
@@ -26,6 +28,11 @@ const Row = styled.div`
 	display: flex;
 `
 
+const FavNum = styled.span`
+	padding-left: 5px;
+	padding-top: 1px;
+`
+
 const RowBetween = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -41,6 +48,7 @@ const iconStyle = {
 type Props = {
 	record: RecordComp,
 	onClick: Function,
+	onClickFav: Function,
 	onClickTimestamp: Function,
 }
 
@@ -78,6 +86,20 @@ const RecordItem = (props: Props) => {
 					align="left"
 				>
 					{record.comment}
+				</Typography>
+				<Typography
+					style={{ padding: '5px 0', margin: 0 }}
+					variant="body1"
+					align="right"
+				>
+					<Button size="small" onClick={props.onClickFav}>
+						{false ? (
+							<FavoriteIcon style={{ width: 18 }} />
+						) : (
+							<NotFavoriteIcon style={{ width: 18 }} />
+						)}
+						<FavNum>{props.record.likesCount}</FavNum>
+					</Button>
 				</Typography>
 			</div>
 		</ListItem>

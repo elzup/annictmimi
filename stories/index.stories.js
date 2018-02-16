@@ -73,18 +73,21 @@ storiesOf('RecordCell', module).add('example 1', () => (
 			<RecordItem
 				record={record1}
 				onClick={action('open record')}
+				onClickFav={action('favo')}
 				onClickTimestamp={action('clicked timestamp')}
 			/>
 			<hr />
 			<RecordItem
 				record={{ ...record1, ratingState: null }}
 				onClick={action('open record')}
+				onClickFav={action('favo')}
 				onClickTimestamp={action('clicked timestamp')}
 			/>
 			<hr />
 			<RecordItem
 				record={record2}
 				onClick={action('open record')}
+				onClickFav={action('favo')}
 				onClickTimestamp={action('clicked timestamp')}
 			/>
 		</List>

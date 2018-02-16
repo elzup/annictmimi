@@ -11,6 +11,8 @@ import EpisodeRecordsList from '../../components/EpisodeRecordsList'
 import ErrorUsa from '../../components/ErrorUsa'
 import * as selectors from './selectors'
 
+import { openAnnictRecord } from './logic'
+
 type OProps = {
 	match: {
 		params: {
@@ -22,6 +24,7 @@ type OProps = {
 type Props = {
 	episode: EpisodeComp | null,
 	records: RecordComp[] | null,
+	openAnnictRecord: Function,
 }
 
 class Container extends React.Component<Props> {
@@ -36,6 +39,7 @@ class Container extends React.Component<Props> {
 						<EpisodeRecordsList
 							episode={props.episode}
 							records={props.records}
+							onClickTimestamp={props.openAnnictRecord}
 						/>
 					</div>
 				) : (
@@ -54,6 +58,6 @@ const ms = (state: State, op: OProps) => {
 	}
 }
 
-const conn: Connector<OProps, Props> = connect(ms, {})
+const conn: Connector<OProps, Props> = connect(ms, { openAnnictRecord })
 
 export default withRouter(conn(Container))
