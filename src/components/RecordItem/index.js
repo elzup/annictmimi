@@ -98,7 +98,7 @@ const RecordItem = (props: Props) => {
 						) : (
 							<NotFavoriteIcon style={{ width: 18 }} />
 						)}
-						<FavNum>20</FavNum>
+						<FavNum>{props.record.likesCount}</FavNum>
 					</Button>
 				</Typography>
 			</div>
