@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import usa from '../assets/usa.svg'
 
 type Props = {
-	message: string,
+	children?: React.Node,
 }
 
 const Box = styled.div`
@@ -20,6 +20,6 @@ const Logo = styled.img`
 export default (props: Props) => (
 	<Box>
 		<Logo src={usa} alt="usa" />
-		<p>{props.message}</p>
+		<p>{props.children}</p>
 	</Box>
 )

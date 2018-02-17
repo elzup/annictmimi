@@ -15,3 +15,9 @@ export function openAnnictRecord({
 		window.open(url)
 	}
 }
+
+export function openAnnict(): ThunkAction {
+	return () => {
+		window.open('https://jp.annict.com')
+	}
+}

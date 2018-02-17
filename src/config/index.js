@@ -2,7 +2,7 @@
 
 import _combineReducers from './combineReducers'
 import queryString from 'query-string'
-const {
+let {
 	NODE_ENV,
 	REACT_APP_ANNICT_CLIENT_ID,
 	REACT_APP_ANNICT_CLIENT_SECRET,
@@ -12,11 +12,13 @@ const {
 if (
 	!REACT_APP_ANNICT_CLIENT_ID ||
 	!REACT_APP_ANNICT_CLIENT_SECRET ||
-	!REACT_APP_ANNICT_REDIRECT ||
-	!NODE_ENV
+	!REACT_APP_ANNICT_REDIRECT
 ) {
-	console.error(process.env)
-	throw Error('Configuration not completed. must setup envioraments.')
+	console.warn('Configuration not completed. must setup envioraments.')
+	REACT_APP_ANNICT_CLIENT_ID = '-'
+	REACT_APP_ANNICT_CLIENT_SECRET = '-'
+	REACT_APP_ANNICT_REDIRECT = '-'
+	console.info(process.env)
 }
 
 type Config = {

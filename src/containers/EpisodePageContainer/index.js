@@ -11,7 +11,7 @@ import EpisodeRecordsList from '../../components/EpisodeRecordsList'
 import ErrorUsa from '../../components/ErrorUsa'
 import * as selectors from './selectors'
 
-import { openAnnictRecord } from './logic'
+import { openAnnictRecord } from '../AnnictUser/logic'
 
 type OProps = {
 	match: {
@@ -43,7 +43,7 @@ class Container extends React.Component<Props> {
 						/>
 					</div>
 				) : (
-					<ErrorUsa message={'データが見つかりませんでした。'} />
+					<ErrorUsa>{'データが見つかりませんでした。'}</ErrorUsa>
 				)}
 			</div>
 		)

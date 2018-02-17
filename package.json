@@ -15,7 +15,7 @@
 		"gen:env":
 			"cp templates/temp.env .env.development.local && cp templates/temp.env .env.production.local",
 		"precommit": "lint-staged",
-		"storybook": ". .env && start-storybook -p 6006",
+		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook"
 	},
 	"dependencies": {

@@ -70,7 +70,7 @@ export const record2: RecordComp = {
 	annictId: 96668,
 	comment:
 		'殺人羊を生み出したのは人間の娯楽という皮肉も、昼寝で終わるのもこの作品らしい。\r\nナイト2000ならそのままジャンプして谷を越えられたのに。',
-	likesCount: 0,
+	likesCount: 100,
 	createdAt: '2018-02-05T14:49:40Z',
 	ratingState: 'GREAT',
 	episode: 'RXBpc29kZS05NTkyMg==',

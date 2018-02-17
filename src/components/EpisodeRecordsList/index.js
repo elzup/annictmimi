@@ -14,7 +14,7 @@ type Props = {
 
 const EpisodeRecordsList = (props: Props) => {
 	if (props.records.length === 0) {
-		return <ErrorUsa message="コメントはまだありません。" />
+		return <ErrorUsa>{'コメントはまだありません。'}</ErrorUsa>
 	}
 	return (
 		<List>
