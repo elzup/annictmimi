@@ -39,7 +39,7 @@ class Container extends React.Component<Props> {
 						<EpisodeRecordsList
 							episode={props.episode}
 							records={props.records}
-							onClickTimestamp={props.openAnnictRecord}
+							openAnnictRecord={props.openAnnictRecord}
 						/>
 					</div>
 				) : (

@@ -9,7 +9,7 @@ import ErrorUsa from '../ErrorUsa'
 type Props = {
 	records: RecordComp[],
 	episode: EpisodeComp,
-	onClickTimestamp: Function,
+	openAnnictRecord: Function,
 }
 
 const EpisodeRecordsList = (props: Props) => {
@@ -23,9 +23,14 @@ const EpisodeRecordsList = (props: Props) => {
 					key={record.id}
 					record={record}
 					onClick={() => {}}
-					onClickFav={() => {}}
+					onClickFav={() => {
+						props.openAnnictRecord({
+							username: record.user.username,
+							recordAnnictId: record.annictId,
+						})
+					}}
 					onClickTimestamp={() => {
-						props.onClickTimestamp({
+						props.openAnnictRecord({
 							username: record.user.username,
 							recordAnnictId: record.annictId,
 						})
