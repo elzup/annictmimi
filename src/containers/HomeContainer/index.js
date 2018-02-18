@@ -19,7 +19,10 @@ type Props = {
 
 class HomeContainer extends React.Component<Props> {
 	componentDidMount() {
-		this.props.loadRecords()
+		// @HACKME
+		if (window.onpopstate === null) {
+			this.props.loadRecords()
+		}
 	}
 	render() {
 		return (
