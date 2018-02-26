@@ -1,8 +1,8 @@
 {
-	"name": "annict-mimi",
+	"name": "annictmimi",
 	"version": "1.0.0",
 	"private": true,
-	"homepage": "https://annictmimi.elzup.work",
+	"homepage": "https://annictmimi.elzup.org",
 	"scripts": {
 		"start": "node scripts/start.js",
 		"offbuild": "node scripts/build.js",
