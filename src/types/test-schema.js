@@ -13,7 +13,7 @@ const work: WorkResponse = {
 	annictId: 5345,
 	title: 'キノの旅 -the Beautiful World- the Animated Series',
 	image: {
-		recommendedImageUrl:
+		twitterAvatarUrl:
 			'http://www.kinonotabi-anime.com/assets/images/common/ogp.png',
 	},
 	seasonName: 'AUTUMN',

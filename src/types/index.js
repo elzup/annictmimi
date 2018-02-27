@@ -98,7 +98,7 @@ export type WorkResponse = {
 	annictId: number,
 	title: string,
 	image: {
-		recommendedImageUrl: string,
+		twitterAvatarUrl: string,
 	},
 	seasonName: string,
 	seasonYear: number,

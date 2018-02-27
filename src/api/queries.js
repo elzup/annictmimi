@@ -21,7 +21,7 @@ export const getActivitiesQuery = () =>
               title
               media
               image {
-                recommendedImageUrl
+                twitterAvatarUrl
               }
               reviewsCount
               seasonName

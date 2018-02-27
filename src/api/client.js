@@ -98,7 +98,7 @@ function normalizeRecord(
 function normalizeWork(workRes: WorkResponse): Work {
 	return {
 		..._.omit(workRes, 'image', 'episodesCount', 'seasonNameYear'),
-		url: workRes.image.recommendedImageUrl,
+		url: workRes.image.twitterAvatarUrl,
 		seasonNameText: workRes.seasonYear + workRes.seasonName,
 	}
 }
