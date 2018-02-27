@@ -17,7 +17,7 @@ export const episode1: EpisodeComp = {
 		id: 5229,
 		annictId: 5229,
 		title: 'ポプテピピック',
-		url: 'http://hoshiiro.jp/ogp.png',
+		url: 'https://twitter.com/hoshiiro_anime/profile_image?size=original',
 		seasonName: '2018-winter',
 		seasonNameText: '2018年冬',
 	},
@@ -42,7 +42,7 @@ export const episode2: EpisodeComp = {
 		title: 'キノの旅 -the Beautiful World- the Animated Series',
 		seasonName: 'AUTUMN',
 		seasonYear: 2017,
-		url: 'http://www.kinonotabi-anime.com/assets/images/common/ogp.png',
+		url: 'https://twitter.com/kinonotabianime/profile_image?size=original',
 		seasonNameText: '2017AUTUMN',
 	},
 }
