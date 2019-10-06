@@ -61,7 +61,7 @@
 		"babel-loader": "7.1.2",
 		"babel-plugin-lodash": "3.3.2",
 		"babel-plugin-s2s-variable-initializing": "0.1.7",
-		"babel-preset-react-app": "3.1.1",
+		"babel-preset-react-app": "9.0.2",
 		"babel-runtime": "6.26.0",
 		"case-sensitive-paths-webpack-plugin": "2.1.1",
 		"chalk": "2.3.1",
