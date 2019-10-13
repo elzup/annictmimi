@@ -21,7 +21,7 @@
 	"dependencies": {
 		"annict": "0.0.8",
 		"camelcase-keys-recursive": "0.8.2",
-		"graphql": "0.13.0",
+		"graphql": "14.5.8",
 		"lodash": "4.17.5",
 		"material-ui": "1.0.0-beta.32",
 		"material-ui-icons": "1.0.0-beta.17",
